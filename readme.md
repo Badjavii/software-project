@@ -28,4 +28,4 @@ Booksy es un software web, por lo que, usaremos tecnologias especializadas en el
 
 #### Licencia
 
-Este software esta bajo la licencia  **GNU GPL-3**, la cual, clasifica este proyecto como un "proyecto de software libre y codigo abierto sin fines de lucro". Puedes consultar a detalle la licencia [aquí](LICENSE). 
+Este software esta bajo la licencia  **GNU GPL-3**, la cual, clasifica este proyecto como un "proyecto de software libre y codigo abierto sin fines de lucro". Puedes consultar a detalle la licencia [aquí](LICENSE)..
