@@ -45,4 +45,11 @@ Este proyecto está siendo desarrollado en el marco de la asignatura **Ingenier�
 
 Este software se distribuye bajo la licencia **GNU General Public License v3.0 (GPL-3.0)**, clasificándolo como un proyecto de software libre y de código abierto.
 
-Puedes consultar los términos completos de la licencia [aquí](LICENSE).
+Puedes consultar los términos completos de la licencia [aquí](LICENSE)..
+
+## Artefactos
+
+A continuación se presentarán todos los artefactos que dan soporte a este proyecto como contratos entre cliente-desarrollador. 
+
+- Brief
+- ...
