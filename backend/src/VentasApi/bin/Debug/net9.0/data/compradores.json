@@ -1,0 +1,4 @@
+[
+  { "Id": 1, "Nombre": "Juan Perez", "Email": "juan.perez@example.com" },
+  { "Id": 2, "Nombre": "Maria Lopez", "Email": "maria.lopez@example.com" }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "Id": 1,
+    "Titulo": "Programación en C#",
+    "Autor": "Autor Ejemplo",
+    "Precio": 29.99
+  },
+  {
+    "Id": 2,
+    "Titulo": "Estructuras de Datos",
+    "Autor": "Otro Autor",
+    "Precio": 35.50
+  }
+]
