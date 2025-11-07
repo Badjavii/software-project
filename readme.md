@@ -30,6 +30,26 @@ Booksy es una aplicación web que sigue una arquitectura **Cliente-Servidor (Fro
 - **Git:** Sistema de control de versiones, esencial para la colaboración en equipo y el manejo de código. El alojamiento y flujo de trabajo se gestiona a través de **GitHub**.
 - **JSON (JavaScript Object Notation):** Se empleará como formato de intercambio de datos para la comunicación **Cliente-Servidor** (a través de APIs REST). JSON también se utiliza para el almacenamiento en local de los datos.
 
+## Arquitectura del Proyecto
+
+Booksy está estructurado bajo un enfoque Cliente-Servidor, dividiendo claramente la lógica de negocio (backend) de la interfaz de usuario (frontend). Esta separación permite un desarrollo modular, escalable y mantenible, facilitando la colaboración entre equipos y la evolución del sistema.
+
+Ambos componentes se comunican a través de peticiones HTTP utilizando JSON como formato de intercambio de datos, siguiendo el estilo de arquitectura RESTful.
+
+### Estructura General
+
+```Bash
+src/
+├── backend/     # Lógica del servidor, controladores, modelos, servicios, repositorios
+└── frontend/    # Interfaz de usuario, componentes Vue, servicios, recursos estáticos
+```
+
+Cada una de estas capas está documentada en profundidad en los siguientes archivos:
+
+- [backend/docs/architecture-backend.md](URL del enlace) - Detalles sobre la estructura, responsabilidades y flujo de datos del backend.
+
+- [frontend/docs/architecture-frontend.md]() - Detalles sobre la estructura, responsabilidades y flujo de datos del backend
+
 ## Contexto del Proyecto
 
 Este proyecto está siendo desarrollado en el marco de la asignatura **Ingeniería de Software** de la **Universidad Católica Andrés Bello**.
