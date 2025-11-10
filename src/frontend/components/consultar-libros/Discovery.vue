@@ -23,7 +23,7 @@ import CardRectangleFour from "./cards/discovery/CardRectangleFour.vue";
  .discovery-article {
    display: flex;
    flex-direction: column;
-   height: 55vh;
+   height: 57vh;
    margin: 5rem 0 5rem 0;
    gap: 2rem;
  }

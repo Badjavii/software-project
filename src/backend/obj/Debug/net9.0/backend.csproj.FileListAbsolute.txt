@@ -9,7 +9,6 @@ C:\Users\PC\Documents\GitHub\software-project\src\backend\obj\Debug\net9.0\backe
 C:\Users\PC\Documents\GitHub\software-project\src\backend\obj\Debug\net9.0\backend.sourcelink.json
 C:\Users\PC\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\PC\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\appsettings.json
-C:\Users\PC\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\models\files\book.json
 C:\Users\PC\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\backend.staticwebassets.endpoints.json
 C:\Users\PC\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\backend.exe
 C:\Users\PC\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\backend.deps.json
@@ -32,3 +31,4 @@ C:\Users\PC\Documents\GitHub\software-project\src\backend\obj\Debug\net9.0\refin
 C:\Users\PC\Documents\GitHub\software-project\src\backend\obj\Debug\net9.0\backend.pdb
 C:\Users\PC\Documents\GitHub\software-project\src\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
 C:\Users\PC\Documents\GitHub\software-project\src\backend\obj\Debug\net9.0\ref\backend.dll
+C:\Users\PC\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\models\files\book.json

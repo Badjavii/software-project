@@ -1,17 +1,17 @@
-using backend.models;
 
-class Program
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
 {
-    static void Main(string[] args)
-    {
-        Book book = new Book("", "", "", new List<string>(), 0, 0, 0);
-        List<Book> libros = book.LoadBooks("libros.json");
+    options.AddPolicy("AllowVue", policy =>
+        policy.WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+});
 
-        Console.WriteLine("Ingrese término de búsqueda:");
-        string entrada = Console.ReadLine();
+builder.Services.AddControllers();
+var app = builder.Build();
 
-        List<Book> resultados = book.SearchBooks(libros, entrada);
-
-        book.ShowBooks(resultados);
-    }
-}
+app.UseCors("AllowVue");
+app.MapControllers();
+app.Run();

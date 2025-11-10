@@ -20,7 +20,7 @@ public class Book {
     // Methods
 
     // Constructor
-    public Book(string nameBook, string author, string typeBook, List<string> categoryList, int numPages, int publishYear, float cost) {
+    public Book(string nameBook, string author, string typeBook, List<string> categoryList, int numPages, int publishYear, float cost, Seller seller) {
         this._nameBook = nameBook;
         this._author = author;
         this._typeBook = typeBook;
@@ -28,6 +28,19 @@ public class Book {
         this._numPages = numPages;
         this._publishYear = publishYear;
         this._cost = cost;
+        this._seller = seller;
+    }
+
+    public Book() {
+        
+        this._nameBook = "";
+        this._author = "";
+        this._typeBook = "";
+        this._categoryList = new List<string>();
+        this._numPages = 0;
+        this._publishYear = 0;
+        this._cost = 0;
+        this._seller = new Seller();
     }
 
     // Getter and Setter
