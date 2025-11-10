@@ -1,39 +1,17 @@
-var builder = WebApplication.CreateBuilder(args);
+using backend.models;
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+class Program
 {
-    app.MapOpenApi();
-}
+    static void Main(string[] args)
+    {
+        Book book = new Book("", "", "", new List<string>(), 0, 0, 0);
+        List<Book> libros = book.LoadBooks("libros.json");
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
+        Console.WriteLine("Ingrese término de búsqueda:");
+        string entrada = Console.ReadLine();
 
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
+        List<Book> resultados = book.SearchBooks(libros, entrada);
 
-app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        book.ShowBooks(resultados);
+    }
 }
