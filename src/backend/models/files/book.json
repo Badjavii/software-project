@@ -1,0 +1,36 @@
+﻿[
+  {
+    "_nameBook": "Cien años de soledad",
+    "_author": "Gabriel García Márquez",
+    "_typeBook": "Novela",
+    "_categoryList": ["Realismo mágico", "Literatura latinoamericana"],
+    "_numPages": 417,
+    "_publishYear": 1967,
+    "_cost": 15.99,
+    "_seller": {
+      "email": "gabo@macondo.com",
+      "firstName": "Gabriel",
+      "lastName": "García",
+      "age": 40,
+      "listBook": [],
+      "calification": [4.9, 5.0]
+    }
+  },
+  {
+    "_nameBook": "La invención de Morel",
+    "_author": "Adolfo Bioy Casares",
+    "_typeBook": "Ficción filosófica",
+    "_categoryList": ["Ciencia ficción", "Literatura argentina"],
+    "_numPages": 152,
+    "_publishYear": 1940,
+    "_cost": 12.5,
+    "_seller": {
+      "email": "bioy@ficcion.com",
+      "firstName": "Adolfo",
+      "lastName": "Casares",
+      "age": 38,
+      "listBook": [],
+      "calification": [4.5, 4.8]
+    }
+  }
+]
