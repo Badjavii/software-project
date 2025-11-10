@@ -13,10 +13,8 @@ import SearchBar from "./SearchBar.vue";
       <menu class="navbar-list">
         <li class="navbar-list-item"><a class="link">Inicio</a></li>
         <li class="navbar-list-item"><a class="link">Categorías</a></li>
+        <li class="navbar-list-item"><a class="link">Perfil</a></li>
         <li class="navbar-list-item"><a class="link">Vender</a></li>
-        <li class="navbar-list-item"><a class="link">Crear cuenta</a></li>
-        <li class="navbar-list-item"><a class="link">Ingresa</a></li>
-        <li class="navbar-list-item"><a class="link">Mis compras</a></li>
       </menu>
     </section>
   </nav>
