@@ -17,48 +17,98 @@ import CardEcosystemThree from "./cards/ecosystem-card/CardEcosystemThree.vue";
 
 <style scoped>
 
-.welcome-article {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 110vh;
+@media (min-width: 1600px){
 
-  background-image:
-    linear-gradient(to bottom, rgba(0,0,0, 0.5), transparent),
+
+  .welcome-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
     linear-gradient(to top, rgb(5, 33, 52), transparent),
     url("assets/img/consultar-libros-img/background.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-  align-items: center;
-  font-weight: bolder;
+    align-items: center;
+    font-weight: bolder;
 
+  }
+
+  .text {
+    text-align: center;
+    align-content: center;
+    height: 10%;
+    width: 100%;
+
+    margin: 0 0 10rem 0;
+    font-size: 2.5rem;
+    color: white;
+  }
+
+  .filtrer-bar {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+  }
+
+  .card {
+    flex-flow: wrap;
+  }
+
+  .card:hover {
+    animation: jump 1s ease;
+  }
 }
 
-.text {
-  text-align: center;
-  align-content: center;
-  height: 10%;
-  width: 100%;
+@media (min-width: 1200px) and (max-width: 1599px) {
 
-  margin: 0 0 10rem 0;
-  font-size: 2.5rem;
-  color: white;
-}
 
-.filtrer-bar {
-  display: flex;
-  list-style: none;
-  gap: 3rem;
-}
+  .welcome-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 110vh;
 
-.card {
-  flex-flow: wrap;
-}
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
+    linear-gradient(to top, rgb(5, 33, 52), transparent),
+    url("assets/img/consultar-libros-img/background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-.card:hover {
-  animation: jump 1s ease;
+    align-items: center;
+    font-weight: bolder;
+
+  }
+
+  .text {
+    text-align: center;
+    align-content: center;
+    height: 10%;
+    width: 100%;
+
+    margin: 0 0 10rem 0;
+    font-size: 2.5rem;
+    color: white;
+  }
+
+  .filtrer-bar {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+  }
+
+  .card {
+    flex-flow: wrap;
+  }
+
+  .card:hover {
+    animation: jump 1s ease;
+  }
 }
 
 </style>

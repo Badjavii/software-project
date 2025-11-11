@@ -77,7 +77,7 @@ import CategoryCardPoetry from "../cards/Category/CategoryCardPoetry.vue";
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1599px) {
   .book-list-article {
     display: flex;
     height: 60vh;
