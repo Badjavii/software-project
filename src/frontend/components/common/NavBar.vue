@@ -11,10 +11,13 @@ import SearchBar from "./SearchBar.vue";
     </section>
     <section class="nav-bar-two">
       <menu class="navbar-list">
-        <li class="navbar-list-item"><a class="link">Inicio</a></li>
-        <li class="navbar-list-item"><a class="link">Categorías</a></li>
-        <li class="navbar-list-item"><a class="link">Perfil</a></li>
-        <li class="navbar-list-item"><a class="link">Vender</a></li>
+        <li class="navbar-list-item"><router-link to="/" class="link">Inicio</router-link></li>
+        <li class="navbar-list-item"><router-link to="/catalog" class="link">Catálogo</router-link></li>
+        <li class="navbar-list-item"><router-link to="/books" class="link">Categorías</router-link></li>
+        <li class="navbar-list-item"><router-link to="/books" class="link">Vender</router-link></li>
+        <li class="navbar-list-item"><router-link to="/books" class="link">Crear cuenta</router-link></li>
+        <li class="navbar-list-item"><router-link to="/books" class="link">Ingresa</router-link></li>
+        <li class="navbar-list-item"><router-link to="/books" class="link">Mis compras</router-link></li>
       </menu>
     </section>
   </nav>
@@ -71,11 +74,21 @@ import SearchBar from "./SearchBar.vue";
     transition: transform 0.3s ease;
   }
 
-  .link {
+  :deep(.link) {
     height: 3vh;
-    width: 5vw;
+    width: 4.8vw;
+
+    display: inline-block;
+    box-sizing: border-box;
+
+    justify-items: center;
+    align-content: center;
+
+    text-decoration: none;
+    color: black;
     font-size: 1.3em;
     font-weight: bold;
+    border-radius: 1rem;
   }
 
   .navbar-list-item:hover{
@@ -91,7 +104,7 @@ import SearchBar from "./SearchBar.vue";
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1599px) {
   #nav-bar {
     display: flex;
     flex-direction: column;
@@ -140,11 +153,21 @@ import SearchBar from "./SearchBar.vue";
     transition: transform 0.3s ease;
   }
 
-  .link {
+  :deep(.link) {
     height: 3vh;
     width: 6vw;
-    font-size: 1.1em;
+
+    display: inline-block;
+    box-sizing: border-box;
+
+    justify-items: center;
+    align-content: center;
+
+    text-decoration: none;
+    color: black;
+    font-size: 1.3em;
     font-weight: bold;
+    border-radius: 1rem;
   }
 
   .navbar-list-item:hover{

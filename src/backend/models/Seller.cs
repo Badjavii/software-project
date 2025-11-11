@@ -5,6 +5,6 @@ public  class Seller : Profile {
     // Attributes
 
     private List<Book> _listBook;
-    private List<float> _calification;
+    private List<float> _qualification;
     
 }
