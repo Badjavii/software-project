@@ -50,11 +50,11 @@ namespace backend.repositories
 
             foreach (var element in rawBuyers)
             {
-                string email = element.GetProperty("_email").GetString();
-                string firstName = element.GetProperty("_firstName").GetString();
-                string lastName = element.GetProperty("_lastName").GetString();
-                int age = element.GetProperty("_age").GetInt32();
-                string password = element.GetProperty("_password").GetString();
+                string email = element.GetProperty("_email").GetString()!;
+                string firstName = element.GetProperty("_firstName").GetString()!;
+                string lastName = element.GetProperty("_lastName").GetString()!;
+                int age = element.GetProperty("_age").GetInt32()!;
+                string password = element.GetProperty("_password").GetString()!;
 
                 Buyer buyer = ProfileFactory.CreateBuyer(email, firstName, lastName, age, password);
                 _buyers.Add(buyer);

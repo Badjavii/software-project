@@ -16,7 +16,7 @@ namespace backend.factories
         private static readonly ProfileFactory _instance = new ProfileFactory();
 
         //**@brief Constructor privado para evitar instanciación externa.
-        private ProfileFactory() {}
+        private ProfileFactory() { }
 
         //**@brief Obtiene la instancia única de la fábrica.
         public static ProfileFactory Instance => _instance;
@@ -28,11 +28,9 @@ namespace backend.factories
         }
 
         //**@brief Crea un perfil de tipo Seller. Retorna instancia de Buyer.
-        public static Seller CreateSeller(string email, string firstName, string lastName, int age, string password, List<Book> catalog, List<float> ratings)
+        public static Seller CreateSeller(string email, string firstName, string lastName, int age, string password)
         {
             Seller seller = new Seller(email, firstName, lastName, age, password);
-            seller.Catalog = catalog ?? new List<Book>();
-            seller.Ratings = ratings ?? new List<float>();
             return seller;
         }
     }
