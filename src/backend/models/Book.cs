@@ -1,5 +1,4 @@
-﻿
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 namespace backend.models;
@@ -26,12 +25,12 @@ public class Book
     private int _numPages;
     private int _publishYear;
     private float _cost;
-    private Seller _seller;
+    private string _sellerEmail;
 
     // Methods
 
     // Constructor
-    public Book(int id, string nameBook, string subtitle, string series, string author, string language, string publisher, string bookCover, string typeBook, string bookVolume, float bookHeight, float bookWidth, List<string> categoryList, int numPages, int publishYear, float cost, Seller seller)
+    public Book(int id, string nameBook, string subtitle, string series, string author, string language, string publisher, string bookCover, string typeBook, string bookVolume, float bookHeight, float bookWidth, List<string> categoryList, int numPages, int publishYear, float cost, string sellerEmail)
     {
         _id = id;
         _nameBook = nameBook;
@@ -49,28 +48,7 @@ public class Book
         _numPages = numPages;
         _publishYear = publishYear;
         _cost = cost;
-        _seller = seller;
-    }
-
-    public Book()
-    {
-        _id = 0;
-        _nameBook = "";
-        _subtitle = "";
-        _series = "";
-        _author = "";
-        _language = "";
-        _publisher = "";
-        _bookCover = "";
-        _typeBook = "";
-        _bookVolume = "";
-        _bookHeight = 0;
-        _bookWidth = 0;
-        _categoryList = new List<string>();
-        _numPages = 0;
-        _publishYear = 0;
-        _cost = 0;
-        _seller = new Seller();
+        _sellerEmail = sellerEmail;
     }
 
     // Getter and Setter
@@ -187,53 +165,10 @@ public class Book
         set => _cost = value;
     }
 
-    [JsonPropertyName("_seller")]
-    public Seller Seller
+    [JsonPropertyName("_sellerEmail")]
+    public string SellerEmail
     {
-        get => _seller;
-        set => _seller = value ?? throw new ArgumentNullException(nameof(value));
-    }
-
-    // Verification methods
-
-    bool VerificateNameBook(string nameBook)
-    {
-        string pattern = @"^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\:\-\,\.\'\(\)]+$";
-        return Regex.IsMatch(nameBook, pattern);
-    }
-
-    // Other Methods
-
-    public List<Book> LoadBooks(string rootFile)
-    {
-        try
-        {
-            string json = File.ReadAllText(rootFile);
-            List<Book> list = JsonSerializer.Deserialize<List<Book>>(json);
-            return list != null ? list : new List<Book>();
-        }
-        catch (JsonException e)
-        {
-            Console.WriteLine($"JsonException: {e.Message}");
-            List<Book> list = new List<Book>();
-            return list;
-        }
-
-    }
-
-    public List<Book> SearchBooks(List<Book> books, string dataEnter)
-    {
-        string bookSame = dataEnter.ToLower();
-        var sameBook = books.Where(book => book._nameBook.ToLower() == bookSame).ToList();
-        var similarBook = books.Where(book => book._nameBook.ToLower().Contains(bookSame) && book._nameBook.ToLower() != bookSame);
-        return sameBook.Concat(similarBook).ToList();
-    }
-
-    public void ShowBooks(List<Book> bookList)
-    {
-        for (int i = 0; i < bookList.Count(); ++i)
-        {
-            Console.WriteLine($"Nombre del libro: {bookList[i]._nameBook}");
-        }
+        get => _sellerEmail;
+        set => _sellerEmail = value ?? throw new ArgumentNullException(nameof(value));
     }
 }
