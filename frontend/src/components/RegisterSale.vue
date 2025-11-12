@@ -14,18 +14,6 @@
       </label>
 
       <label class="field">
-        <span>Código de compra</span>
-        <input
-          type="number"
-          min="1"
-          step="1"
-          v-model.number="form.codigoDeCompra"
-          placeholder="Ej. 4501"
-          required
-        />
-      </label>
-
-      <label class="field">
         <span>ID del vendedor</span>
         <input
           type="number"
@@ -51,11 +39,11 @@
     </div>
 
     <p class="helper">
-      Los correos y montos son calculados por el backend usando los catálogos existentes.
+      El código de compra se asigna automáticamente en base al historial. Los correos y montos se obtienen del backend.
     </p>
 
     <div class="actions">
-      <button class="primary-btn" type="submit" :disabled="loading">
+      <button class="card-button" type="submit" :disabled="loading">
         {{ loading ? 'Registrando…' : 'Registrar venta' }}
       </button>
     </div>
@@ -77,7 +65,6 @@ export default {
   data() {
     return {
       form: {
-        codigoDeCompra: null,
         libroId: null,
         compradorId: null,
         vendedorId: null
@@ -98,7 +85,6 @@ export default {
         this.success = true
         this.$emit('registered')
         this.form = {
-          codigoDeCompra: null,
           libroId: null,
           compradorId: null,
           vendedorId: null
@@ -160,29 +146,6 @@ export default {
 .actions {
   display: flex;
   justify-content: flex-end;
-}
-
-.primary-btn {
-  border: none;
-  border-radius: 18px;
-  padding: 12px 26px;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  background: linear-gradient(120deg, #1c68f3, #3597ff);
-  box-shadow: 0 14px 24px rgba(45, 122, 255, 0.35);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.primary-btn:disabled {
-  opacity: 0.65;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.primary-btn:not(:disabled):hover {
-  transform: translateY(-1px);
-  box-shadow: 0 18px 28px rgba(45, 122, 255, 0.45);
 }
 
 .status {

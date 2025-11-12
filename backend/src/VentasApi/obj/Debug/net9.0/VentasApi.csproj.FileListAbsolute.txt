@@ -35,3 +35,4 @@
 /Users/carmelomoschella/Documents/GitHub/software-project/backend/src/VentasApi/obj/Debug/net9.0/VentasApi.pdb
 /Users/carmelomoschella/Documents/GitHub/software-project/backend/src/VentasApi/obj/Debug/net9.0/VentasApi.genruntimeconfig.cache
 /Users/carmelomoschella/Documents/GitHub/software-project/backend/src/VentasApi/obj/Debug/net9.0/ref/VentasApi.dll
+/Users/carmelomoschella/Documents/GitHub/software-project/backend/src/VentasApi/bin/Debug/net9.0/package-lock.json

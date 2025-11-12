@@ -9,14 +9,19 @@ export async function registrarVenta(payload) {
   return resp.data
 }
 
-export async function eliminarVenta(codigoDeCompra, vendedorId) {
-  const resp = await api.delete(`/ventas/${codigoDeCompra}`, { params: { vendedorId } })
-  return resp.status === 204
-}
-
 export async function getVenta(codigoDeCompra) {
   const resp = await api.get(`/ventas/${codigoDeCompra}`)
   return resp.data
+}
+
+export async function softDeleteVenta(codigoDeCompra) {
+  await api.patch(`/ventas/${codigoDeCompra}/soft-delete`)
+  return true
+}
+
+export async function eliminarVenta(codigoDeCompra) {
+  await api.delete(`/ventas/${codigoDeCompra}/hard`)
+  return true
 }
 
 export async function listarVentas() {

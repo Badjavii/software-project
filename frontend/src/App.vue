@@ -221,6 +221,48 @@ body {
   font-size: 0.95rem;
 }
 
+.card-button {
+  margin: 1.3rem 0 0;
+  height: 3.5vh;
+  min-height: 44px;
+  width: 6vw;
+  min-width: 150px;
+  background-color: rgb(0, 117, 235);
+  border-radius: 1rem;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.2s ease;
+  box-shadow: 0 10px 18px rgba(0, 117, 235, 0.35);
+}
+
+.card-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.card-button:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(0, 117, 235, 0.45);
+}
+
+.input-with-button .card-button {
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .card-button {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 @media (max-width: 960px) {
   .app-header {
     grid-template-columns: 1fr;

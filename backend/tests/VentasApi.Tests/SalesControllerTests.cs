@@ -1,4 +1,4 @@
-dtousing System;
+using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -55,7 +55,6 @@ public class SalesControllerTests : IClassFixture<WebApplicationFactory<Program>
     {
         var req = new RegistrarVentaRequest
         {
-            CodigoDeCompra = 5001,
             LibroId = 1,
             CompradorId = 1,
             VendedorId = 1
@@ -64,44 +63,105 @@ public class SalesControllerTests : IClassFixture<WebApplicationFactory<Program>
         // POST register
         var postResp = await _client.PostAsJsonAsync("/api/ventas", req);
         Assert.Equal(HttpStatusCode.Created, postResp.StatusCode);
+        var created = await postResp.Content.ReadFromJsonAsync<VentaResponse>();
+        Assert.NotNull(created);
+        Assert.Equal(1, created!.CodigoDeCompra);
 
         // GET list
         var listResp = await _client.GetAsync("/api/ventas");
         Assert.Equal(HttpStatusCode.OK, listResp.StatusCode);
         var ventas = await listResp.Content.ReadFromJsonAsync<VentaResponse[]>();
         Assert.NotNull(ventas);
-        Assert.Contains(ventas!, v => v.CodigoDeCompra == 5001);
+        Assert.Contains(ventas!, v => v.CodigoDeCompra == created!.CodigoDeCompra);
 
-    // DELETE with wrong vendedorId -> Forbid (403) (vendedor exists but is not owner)
-    var delWrong = await _client.DeleteAsync($"/api/ventas/5001?vendedorId=2");
-    Assert.Equal(HttpStatusCode.Forbidden, delWrong.StatusCode);
+        // DELETE with wrong vendedorId -> Forbid (403) (vendedor exists but is not owner)
+        var delWrong = await _client.DeleteAsync($"/api/ventas/{created!.CodigoDeCompra}?vendedorId=2");
+        Assert.Equal(HttpStatusCode.Forbidden, delWrong.StatusCode);
 
         // DELETE with correct vendedorId -> NoContent
-        var delOk = await _client.DeleteAsync($"/api/ventas/5001?vendedorId=1");
+        var delOk = await _client.DeleteAsync($"/api/ventas/{created!.CodigoDeCompra}?vendedorId=1");
         Assert.Equal(HttpStatusCode.NoContent, delOk.StatusCode);
 
         // GET list should not contain deleted
         var listAfter = await _client.GetAsync("/api/ventas");
         var ventas2 = await listAfter.Content.ReadFromJsonAsync<VentaResponse[]>();
-        Assert.DoesNotContain(ventas2!, v => v.CodigoDeCompra == 5001);
+        Assert.DoesNotContain(ventas2!, v => v.CodigoDeCompra == created!.CodigoDeCompra);
     }
 
     [Fact]
-    public async Task Post_Duplicate_Code_Returns_Conflict()
+    public async Task Post_Assigns_Sequential_Codigos()
     {
         var req = new RegistrarVentaRequest
         {
-            CodigoDeCompra = 6001,
             LibroId = 1,
             CompradorId = 1,
             VendedorId = 1
         };
 
         var first = await _client.PostAsJsonAsync("/api/ventas", req);
-        Assert.Equal(HttpStatusCode.Created, first.StatusCode);
+        var ventaUno = await first.Content.ReadFromJsonAsync<VentaResponse>();
 
         var second = await _client.PostAsJsonAsync("/api/ventas", req);
-        Assert.Equal(HttpStatusCode.Conflict, second.StatusCode);
+        var ventaDos = await second.Content.ReadFromJsonAsync<VentaResponse>();
+
+        Assert.Equal(HttpStatusCode.Created, first.StatusCode);
+        Assert.Equal(HttpStatusCode.Created, second.StatusCode);
+        Assert.NotNull(ventaUno);
+        Assert.NotNull(ventaDos);
+        Assert.Equal(ventaUno!.CodigoDeCompra + 1, ventaDos!.CodigoDeCompra);
+    }
+
+    [Fact]
+    public async Task Soft_Delete_Endpoint_Marks_Venta()
+    {
+        var req = new RegistrarVentaRequest
+        {
+            LibroId = 1,
+            CompradorId = 1,
+            VendedorId = 1
+        };
+
+        var postResp = await _client.PostAsJsonAsync("/api/ventas", req);
+        var created = await postResp.Content.ReadFromJsonAsync<VentaResponse>();
+        Assert.Equal(HttpStatusCode.Created, postResp.StatusCode);
+        Assert.NotNull(created);
+
+        var patchRequest = new HttpRequestMessage(HttpMethod.Patch, $"/api/ventas/{created!.CodigoDeCompra}/soft-delete");
+        var patchResp = await _client.SendAsync(patchRequest);
+        Assert.Equal(HttpStatusCode.NoContent, patchResp.StatusCode);
+
+        var listResp = await _client.GetAsync("/api/ventas");
+        var ventas = await listResp.Content.ReadFromJsonAsync<VentaResponse[]>();
+        Assert.NotNull(ventas);
+        Assert.DoesNotContain(ventas!, v => v.CodigoDeCompra == created!.CodigoDeCompra);
+
+        var singleResp = await _client.GetAsync($"/api/ventas/{created!.CodigoDeCompra}");
+        Assert.Equal(HttpStatusCode.NotFound, singleResp.StatusCode);
+    }
+
+    [Fact]
+    public async Task Hard_Delete_Removes_Venta()
+    {
+        var req = new RegistrarVentaRequest
+        {
+            LibroId = 1,
+            CompradorId = 1,
+            VendedorId = 1
+        };
+
+        var postResp = await _client.PostAsJsonAsync("/api/ventas", req);
+        var created = await postResp.Content.ReadFromJsonAsync<VentaResponse>();
+
+        Assert.Equal(HttpStatusCode.Created, postResp.StatusCode);
+        Assert.NotNull(created);
+
+        var deleteResp = await _client.DeleteAsync($"/api/ventas/{created!.CodigoDeCompra}/hard");
+        Assert.Equal(HttpStatusCode.NoContent, deleteResp.StatusCode);
+
+        var listResp = await _client.GetAsync("/api/ventas");
+        var ventas = await listResp.Content.ReadFromJsonAsync<VentaResponse[]>();
+        Assert.NotNull(ventas);
+        Assert.DoesNotContain(ventas!, v => v.CodigoDeCompra == created!.CodigoDeCompra);
     }
 
     public void Dispose()

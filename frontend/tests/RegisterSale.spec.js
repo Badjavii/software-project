@@ -8,13 +8,11 @@ describe('RegisterSale', () => {
     const fake = vi.spyOn(api, 'registrarVenta').mockResolvedValue({})
     const wrapper = mount(RegisterSale)
 
-    await wrapper.find('input[required]').setValue(123)
-    // set other inputs
     const inputs = wrapper.findAll('input')
-    await inputs[0].setValue(123)
+    expect(inputs.length).toBe(3)
+    await inputs[0].setValue(12)
     await inputs[1].setValue(1)
     await inputs[2].setValue(1)
-    await inputs[3].setValue(1)
 
     await wrapper.find('form').trigger('submit.prevent')
     // wait a tick

@@ -10,7 +10,12 @@
             placeholder="Ej. 1"
             @keyup.enter="fetchVentas"
           />
-          <button type="button" @click="fetchVentas" :disabled="loading">
+          <button
+            type="button"
+            class="card-button"
+            @click="fetchVentas"
+            :disabled="loading"
+          >
             {{ loading ? 'Consultando…' : 'Consultar ventas' }}
           </button>
         </div>
@@ -42,7 +47,7 @@
             <th>Libro</th>
             <th>Comprador</th>
             <th>Vendedor</th>
-            <th></th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
@@ -54,7 +59,10 @@
             <td>{{ venta.CompradorId }}</td>
             <td>{{ venta.VendedorId }}</td>
             <td class="actions-cell">
-              <button class="ghost" @click="eliminar(venta.CodigoDeCompra, venta.VendedorId)">
+              <button class="ghost" @click="marcarEliminada(venta.CodigoDeCompra)">
+                Marcar eliminada
+              </button>
+              <button class="ghost danger" @click="eliminarVentaDefinitiva(venta.CodigoDeCompra)">
                 Eliminar
               </button>
             </td>
@@ -70,7 +78,7 @@
 </template>
 
 <script>
-import { listarVentas, eliminarVenta } from '../services/api'
+import { listarVentas, softDeleteVenta as softDeleteVentaApi, eliminarVenta as eliminarVentaApi } from '../services/api'
 
 const currencyFormatter = new Intl.NumberFormat('es-VE', {
   style: 'currency',
@@ -125,12 +133,18 @@ export default {
         this.loading = false
       }
     },
-    async eliminar(codigo, vendedorId) {
+    async marcarEliminada(codigo) {
       try {
-        const ok = await eliminarVenta(codigo, vendedorId)
-        if (ok) {
-          this.ventas = this.ventas.filter(v => v.CodigoDeCompra !== codigo)
-        }
+        await softDeleteVentaApi(codigo)
+        this.ventas = this.ventas.filter(v => v.CodigoDeCompra !== codigo)
+      } catch (err) {
+        this.error = err.response?.data?.message || err.message || 'No se pudo eliminar la venta.'
+      }
+    },
+    async eliminarVentaDefinitiva(codigo) {
+      try {
+        await eliminarVentaApi(codigo)
+        this.ventas = this.ventas.filter(v => v.CodigoDeCompra !== codigo)
       } catch (err) {
         this.error = err.response?.data?.message || err.message || 'No se pudo eliminar la venta.'
       }
@@ -213,28 +227,8 @@ export default {
   flex: 1;
 }
 
-.input-with-button button {
-  white-space: nowrap;
-  border: none;
-  border-radius: 16px;
-  padding: 10px 18px;
-  font-weight: 600;
-  background: linear-gradient(120deg, #5d3efc, #7f5dff);
-  color: white;
-  cursor: pointer;
-  box-shadow: 0 10px 22px rgba(93, 62, 252, 0.35);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.input-with-button button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
-.input-with-button button:not(:disabled):hover {
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(93, 62, 252, 0.45);
+.input-with-button .card-button {
+  margin: 0;
 }
 
 .updated {
@@ -257,12 +251,13 @@ export default {
 
 .table-wrapper {
   border-radius: 18px;
-  overflow: hidden;
   border: 1px solid #eef1fb;
+  overflow-x: auto;
 }
 
 table {
   width: 100%;
+  min-width: 760px;
   border-collapse: collapse;
   font-size: 0.92rem;
 }
@@ -288,6 +283,11 @@ tbody tr + tr {
 
 .actions-cell {
   text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
 }
 
 .ghost {
@@ -298,11 +298,22 @@ tbody tr + tr {
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .ghost:hover {
   border-color: #2b89ff;
   color: #2b89ff;
+}
+
+.ghost.danger {
+  border-color: #ffb8b5;
+  color: #c4372c;
+}
+
+.ghost.danger:hover {
+  border-color: #ff6b5f;
+  color: #ff3b2f;
 }
 
 .empty-state {

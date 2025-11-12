@@ -418,3 +418,4 @@
 /Users/carmelomoschella/Documents/GitHub/software-project/backend/tests/VentasApi.Tests/obj/Debug/net9.0/VentasApi.Tests.pdb
 /Users/carmelomoschella/Documents/GitHub/software-project/backend/tests/VentasApi.Tests/obj/Debug/net9.0/VentasApi.Tests.genruntimeconfig.cache
 /Users/carmelomoschella/Documents/GitHub/software-project/backend/tests/VentasApi.Tests/obj/Debug/net9.0/ref/VentasApi.Tests.dll
+/Users/carmelomoschella/Documents/GitHub/software-project/backend/tests/VentasApi.Tests/bin/Debug/net9.0/package-lock.json

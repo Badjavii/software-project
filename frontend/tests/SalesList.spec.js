@@ -6,6 +6,7 @@ describe('SalesList', () => {
     // Mock the api module before importing the component so the component uses the mocked functions
     vi.mock('../src/services/api', () => ({
       listarVentas: vi.fn().mockResolvedValue([ { CodigoDeCompra: 1, FechaDeVenta: new Date().toISOString(), MontoTotal: 10.5, LibroId:1, CompradorId:1, VendedorId:1 } ]),
+      softDeleteVenta: vi.fn().mockResolvedValue(true),
       eliminarVenta: vi.fn().mockResolvedValue(true),
     }))
 
@@ -23,7 +24,10 @@ describe('SalesList', () => {
     expect(wrapper.html()).toContain('Código')
 
     // trigger delete by calling method directly
-    await wrapper.vm.eliminar(1,1)
-    expect(api.eliminarVenta).toHaveBeenCalledWith(1,1)
+    await wrapper.vm.marcarEliminada(1)
+    expect(api.softDeleteVenta).toHaveBeenCalledWith(1)
+
+    await wrapper.vm.eliminarVentaDefinitiva(1)
+    expect(api.eliminarVenta).toHaveBeenCalledWith(1)
   })
 })

@@ -29,13 +29,11 @@ namespace VentasApi.Controllers
             var compradores = await _store.GetCompradoresAsync();
             var vendedores = await _store.GetVendedoresAsync();
             var ventas = await _store.GetVentasAsync();
-
-            // Validate unique codigoDeCompra
-            if (ventas.Any(v => v.CodigoDeCompra == req.CodigoDeCompra))
+            if (NormalizeCodigos(ventas))
             {
-                var cJson = System.Text.Json.JsonSerializer.Serialize(new { message = "codigoDeCompra ya existe" });
-                return new ContentResult { Content = cJson, ContentType = "application/json", StatusCode = StatusCodes.Status409Conflict };
+                await _store.SaveVentasAsync(ventas);
             }
+            var nextCodigo = ventas.Count + 1;
 
             var libro = libros.FirstOrDefault(l => l.Id == req.LibroId);
             if (libro == null)
@@ -62,7 +60,7 @@ namespace VentasApi.Controllers
 
             var venta = new Venta
             {
-                CodigoDeCompra = req.CodigoDeCompra,
+                CodigoDeCompra = nextCodigo,
                 FechaDeVenta = fecha,
                 LibroId = req.LibroId,
                 CompradorId = req.CompradorId,
@@ -101,7 +99,11 @@ namespace VentasApi.Controllers
         {
             var ventas = await _store.GetVentasAsync();
             var venta = ventas.FirstOrDefault(v => v.CodigoDeCompra == codigoDeCompra && !v.IsDeleted);
-            if (venta == null) return NotFound();
+            if (venta == null)
+            {
+                var j = System.Text.Json.JsonSerializer.Serialize(new { message = "Venta no encontrada" });
+                return new ContentResult { Content = j, ContentType = "application/json", StatusCode = StatusCodes.Status404NotFound };
+            }
             var single = new VentaResponse
             {
                 CodigoDeCompra = venta.CodigoDeCompra,
@@ -186,6 +188,78 @@ namespace VentasApi.Controllers
             await _store.SaveVentasAsync(ventas);
 
             return NoContent();
+        }
+
+        /// <summary>
+        /// Soft delete helper without requiring vendedorId (admin scenarios / UI quick action).
+        /// </summary>
+        [HttpPatch("{codigoDeCompra}/soft-delete")]
+        public async Task<IActionResult> SoftDeleteVenta(int codigoDeCompra)
+        {
+            var ventas = await _store.GetVentasAsync();
+            var venta = ventas.FirstOrDefault(v => v.CodigoDeCompra == codigoDeCompra);
+            if (venta == null)
+            {
+                var j = System.Text.Json.JsonSerializer.Serialize(new { message = "Venta no encontrada" });
+                return new ContentResult { Content = j, ContentType = "application/json", StatusCode = StatusCodes.Status404NotFound };
+            }
+
+            if (!venta.IsDeleted)
+            {
+                venta.IsDeleted = true;
+                await _store.SaveVentasAsync(ventas);
+            }
+
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Hard delete a venta (removes the record from storage).
+        /// </summary>
+        [HttpDelete("{codigoDeCompra}/hard")]
+        public async Task<IActionResult> HardDeleteVenta(int codigoDeCompra)
+        {
+            var ventas = await _store.GetVentasAsync();
+            var venta = ventas.FirstOrDefault(v => v.CodigoDeCompra == codigoDeCompra);
+            if (venta == null)
+            {
+                var j = System.Text.Json.JsonSerializer.Serialize(new { message = "Venta no encontrada" });
+                return new ContentResult { Content = j, ContentType = "application/json", StatusCode = StatusCodes.Status404NotFound };
+            }
+
+            ventas.Remove(venta);
+            await _store.SaveVentasAsync(ventas);
+
+            return NoContent();
+        }
+
+        private static bool NormalizeCodigos(List<Venta> ventas)
+        {
+            if (ventas.Count == 0) return false;
+
+            var ordered = ventas
+                .OrderBy(v => v.FechaDeVenta)
+                .ThenBy(v => v.CodigoDeCompra)
+                .ToList();
+
+            var changed = false;
+            for (var i = 0; i < ordered.Count; i++)
+            {
+                var desired = i + 1;
+                if (ordered[i].CodigoDeCompra != desired)
+                {
+                    ordered[i].CodigoDeCompra = desired;
+                    changed = true;
+                }
+            }
+
+            if (changed)
+            {
+                ventas.Clear();
+                ventas.AddRange(ordered);
+            }
+
+            return changed;
         }
     }
 }
