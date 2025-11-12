@@ -1,16 +1,16 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import ProfileCard from '../../../components/perfil-comprador/ProfileCard.vue';
-import { consultarComprador } from '../../../services/buyerService.js';
+import ProfileCard from '../../../components/perfil-vendedor/ProfileCard.vue';
+import { consultarVendedor } from '../../../services/sellerService.js';
 
 const perfil = ref(null);
 
 onMounted(async () => {
-  const email = localStorage.getItem("buyerEmail");
+  const email = localStorage.getItem("sellerEmail");
   if (!email) return;
 
   try {
-    const response = await consultarComprador("Nombre", "Apellido"); // puedes usar email si el backend lo permite
+    const response = await consultarVendedor("Nombre", "Apellido"); // puedes usar email si el backend lo permite
     perfil.value = response.data;
   } catch (error) {
     alert("Error al consultar perfil: " + error.message);
@@ -20,7 +20,7 @@ onMounted(async () => {
 
 <template>
   <section>
-    <h1 class="titulo">Perfil del Comprador</h1>
+    <h1 class="titulo">Perfil del Vendedor</h1>
     <ProfileCard v-if="perfil" :perfil="perfil" />
   </section>
 </template>

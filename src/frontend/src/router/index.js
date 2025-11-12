@@ -8,11 +8,11 @@ import BooksView from '../views/BooksView.vue';
 import CatalogView from '../views/CatalogView.vue';
 import HomeView from '../views/HomeView.vue';
 // Importa las vistas del módulo Perfil Comprador
-//import ConsultarPerfilView from '../views/perfil-comprador/ProfileView.vue';
+import ProfileView from '../views/perfil-comprador/ProfileView.vue';
 import LoginView from '../views/perfil-comprador/LoginView.vue';
 import RegisterProfileView from '../views/perfil-comprador/RegisterProfileView.vue';
 // Importa las vistas del módulo Perfil Vendedor
-//import ConsultarPerfilView from '../views/perfil-vendedor/ProfileView.vue';
+import PerfilSellerView from '../views/perfil-vendedor/ProfileView.vue';
 import LoginSellerView from '../views/perfil-vendedor/LoginView.vue';
 import RegisterProfileSellerView from '../views/perfil-vendedor/RegisterProfileView.vue';
 
@@ -31,20 +31,20 @@ const routes = [
     // Rutas para Perfil de Comprador
     { path: '/comprador/registrar', component: RegisterProfileView },
     { path: '/comprador/login', component: LoginView },
-    /*{
+    {
         path: '/comprador/consultar',
-        component: ConsultarPerfilView,
+        component: ProfileView,
         meta: { requiresAuth: true } // protegida por sesión
-    }*/
+    },
    
     // Rutas para Perfil de Vendedor
     { path: '/vendedor/registrar', component: RegisterProfileSellerView },
     { path: '/vendedor/login', component: LoginSellerView },
-    /*{
+    {
         path: '/comprador/consultar',
-        component: ConsultarPerfilView,
+        component: PerfilSellerView,
         meta: { requiresAuth: true } // protegida por sesión
-    }*/
+    }
 ];
 
 const router = createRouter({
