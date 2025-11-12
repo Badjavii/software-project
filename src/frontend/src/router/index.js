@@ -8,11 +8,9 @@ import BooksView from '../views/BooksView.vue';
 import CatalogView from '../views/CatalogView.vue';
 import HomeView from '../views/HomeView.vue';
 // Importa las vistas del módulo Perfil Comprador
-import ConsultarPerfilView
-  from '../views/perfil-comprador/ConsultarPerfilView.vue';
-import LoginView from '../views/perfil-comprador/LoginView.vue';
-import RegistrarPerfilView
-  from '../views/perfil-comprador/RegisterProfileView.vue';
+//import ConsultarPerfilView from '../views/perfil-comprador/ProfileView.vue';
+//import LoginView from '../views/perfil-comprador/LoginView.vue';
+import RegisterProfileView from '../views/perfil-comprador/RegisterProfileView.vue';
 
 const routes = [
 
@@ -27,13 +25,13 @@ const routes = [
     },
 
     // Rutas para Perfil de Comprador
-    { path: '/comprador/registrar', component: RegistrarPerfilView },
-    { path: '/comprador/login', component: LoginView },
-    {
+    { path: '/comprador/registrar', component: RegisterProfileView },
+    //{ path: '/comprador/login', component: LoginView },
+    /*{
         path: '/comprador/consultar',
         component: ConsultarPerfilView,
         meta: { requiresAuth: true } // protegida por sesión
-    }
+    }*/
 ];
 
 const router = createRouter({

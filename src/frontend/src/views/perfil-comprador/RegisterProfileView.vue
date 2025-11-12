@@ -2,8 +2,8 @@
 import { useRouter } from 'vue-router';
 
 import FormularioPerfil
-  from '../../components/perfil-comprador/FormProfile.vue';
-import { registrarComprador } from '../../services/compradorService.js';
+  from '../../../components/perfil-comprador/FormProfile.vue';
+import { registrarComprador } from '../../../services/buyerService.js';
 
 const router = useRouter();
 
