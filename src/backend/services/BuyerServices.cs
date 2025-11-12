@@ -25,6 +25,9 @@ namespace backend.services
             if (_repository.ExistsBuyer("_email", dto.Email) == true)
                 throw new Exception("Ya existe un comprador con ese correo.");
 
+            if (_repository.ReturnBuyer(dto.FirstName, dto.LastName) != null)
+                throw new Exception("Ya existe un comprador con ese nombre y apellido.");
+
             Buyer buyer = ProfileFactory.CreateBuyer(dto.Email, dto.FirstName, dto.LastName, dto.Age, dto.Password);
             _repository.AddBuyer(buyer);
             _repository.Save();
