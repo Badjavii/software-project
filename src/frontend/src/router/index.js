@@ -11,6 +11,10 @@ import HomeView from '../views/HomeView.vue';
 //import ConsultarPerfilView from '../views/perfil-comprador/ProfileView.vue';
 //import LoginView from '../views/perfil-comprador/LoginView.vue';
 import RegisterProfileView from '../views/perfil-comprador/RegisterProfileView.vue';
+// Importa las vistas del módulo Perfil Vendedor
+//import ConsultarPerfilView from '../views/perfil-vendedor/ProfileView.vue';
+//import LoginView from '../views/perfil-vendedor/LoginView.vue';
+import RegisterProfileSellerView from '../views/perfil-vendedor/RegisterProfileView.vue';
 
 const routes = [
 
@@ -26,6 +30,15 @@ const routes = [
 
     // Rutas para Perfil de Comprador
     { path: '/comprador/registrar', component: RegisterProfileView },
+    //{ path: '/comprador/login', component: LoginView },
+    /*{
+        path: '/comprador/consultar',
+        component: ConsultarPerfilView,
+        meta: { requiresAuth: true } // protegida por sesión
+    }*/
+   
+    // Rutas para Perfil de Vendedor
+    { path: '/vendedor/registrar', component: RegisterProfileSellerView },
     //{ path: '/comprador/login', component: LoginView },
     /*{
         path: '/comprador/consultar',
