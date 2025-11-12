@@ -1,5 +1,4 @@
-﻿
-[
+﻿[
   {
     "_id": 101,
     "_nameBook": "Fundamentos de Programación",
@@ -13,7 +12,11 @@
     "_bookVolume": "Volumen I",
     "_bookHeight": 23.5,
     "_bookWidth": 15.0,
-    "_categoryList": ["Programación", "Educación", "Informática"],
+    "_categoryList": [
+      "Programación",
+      "Educación",
+      "Informática"
+    ],
     "_numPages": 320,
     "_publishYear": 2025,
     "_cost": 18.99,
@@ -22,7 +25,10 @@
       "_firstName": "Carlos",
       "_lastName": "González",
       "_age": 29,
-      "_listBook": ["Fundamentos de Programación", "Algoritmos y Estructuras de Datos"],
+      "_listBook": [
+        "Fundamentos de Programación",
+        "Algoritmos y Estructuras de Datos"
+      ],
       "_qualification": 4.8
     }
   },
@@ -39,7 +45,11 @@
     "_bookVolume": "Vol. 1",
     "_bookHeight": 21.0,
     "_bookWidth": 14.8,
-    "_categoryList": ["Diseño", "Web", "CSS"],
+    "_categoryList": [
+      "Diseño",
+      "Web",
+      "CSS"
+    ],
     "_numPages": 250,
     "_publishYear": 2025,
     "_cost": 15.99,
@@ -48,7 +58,9 @@
       "_firstName": "Lucía",
       "_lastName": "Torres",
       "_age": 32,
-      "_listBook": ["Diseño Web Moderno"],
+      "_listBook": [
+        "Diseño Web Moderno"
+      ],
       "_qualification": 4.7
     }
   },
@@ -65,7 +77,11 @@
     "_bookVolume": "Vol. 2",
     "_bookHeight": 24.0,
     "_bookWidth": 17.0,
-    "_categoryList": ["Programación", "C#", "Algoritmos"],
+    "_categoryList": [
+      "Programación",
+      "C#",
+      "Algoritmos"
+    ],
     "_numPages": 300,
     "_publishYear": 2024,
     "_cost": 19.50,
@@ -74,7 +90,9 @@
       "_firstName": "Carlos",
       "_lastName": "Méndez",
       "_age": 40,
-      "_listBook": ["Algoritmos en C#"],
+      "_listBook": [
+        "Algoritmos en C#"
+      ],
       "_qualification": 4.9
     }
   },
@@ -91,7 +109,11 @@
     "_bookVolume": "Vol. 1",
     "_bookHeight": 22.5,
     "_bookWidth": 15.5,
-    "_categoryList": ["Vue", "JavaScript", "Frontend"],
+    "_categoryList": [
+      "Vue",
+      "JavaScript",
+      "Frontend"
+    ],
     "_numPages": 280,
     "_publishYear": 2025,
     "_cost": 17.25,
@@ -100,7 +122,9 @@
       "_firstName": "Ana",
       "_lastName": "Rivas",
       "_age": 28,
-      "_listBook": ["Vue 3 desde cero"],
+      "_listBook": [
+        "Vue 3 desde cero"
+      ],
       "_qualification": 4.6
     }
   },
@@ -117,7 +141,11 @@
     "_bookVolume": "Vol. 1",
     "_bookHeight": 25.0,
     "_bookWidth": 18.0,
-    "_categoryList": ["Bases de Datos", "SQL", "Modelado"],
+    "_categoryList": [
+      "Bases de Datos",
+      "SQL",
+      "Modelado"
+    ],
     "_numPages": 320,
     "_publishYear": 2023,
     "_cost": 22.00,
@@ -126,7 +154,9 @@
       "_firstName": "Luis",
       "_lastName": "Romero",
       "_age": 35,
-      "_listBook": ["Bases de Datos"],
+      "_listBook": [
+        "Bases de Datos"
+      ],
       "_qualification": 4.8
     }
   },
@@ -143,7 +173,11 @@
     "_bookVolume": "Vol. 3",
     "_bookHeight": 20.0,
     "_bookWidth": 13.0,
-    "_categoryList": ["JavaScript", "Patrones", "Optimización"],
+    "_categoryList": [
+      "JavaScript",
+      "Patrones",
+      "Optimización"
+    ],
     "_numPages": 260,
     "_publishYear": 2025,
     "_cost": 16.75,
@@ -152,7 +186,9 @@
       "_firstName": "María",
       "_lastName": "López",
       "_age": 30,
-      "_listBook": ["JavaScript Avanzado"],
+      "_listBook": [
+        "JavaScript Avanzado"
+      ],
       "_qualification": 4.5
     }
   },
@@ -169,7 +205,11 @@
     "_bookVolume": "Vol. 1",
     "_bookHeight": 23.0,
     "_bookWidth": 16.0,
-    "_categoryList": ["C#", "Programación", "LINQ"],
+    "_categoryList": [
+      "C#",
+      "Programación",
+      "LINQ"
+    ],
     "_numPages": 290,
     "_publishYear": 2022,
     "_cost": 14.99,
@@ -178,7 +218,9 @@
       "_firstName": "José",
       "_lastName": "Pérez",
       "_age": 38,
-      "_listBook": ["C# para principiantes"],
+      "_listBook": [
+        "C# para principiantes"
+      ],
       "_qualification": 4.4
     }
   },
@@ -195,7 +237,11 @@
     "_bookVolume": "Vol. 2",
     "_bookHeight": 21.5,
     "_bookWidth": 14.0,
-    "_categoryList": ["UX", "UI", "Diseño"],
+    "_categoryList": [
+      "UX",
+      "UI",
+      "Diseño"
+    ],
     "_numPages": 240,
     "_publishYear": 2025,
     "_cost": 18.00,
@@ -204,7 +250,9 @@
       "_firstName": "Laura",
       "_lastName": "Sánchez",
       "_age": 27,
-      "_listBook": ["UX/UI en acción"],
+      "_listBook": [
+        "UX/UI en acción"
+      ],
       "_qualification": 4.9
     }
   },
@@ -221,7 +269,11 @@
     "_bookVolume": "Vol. 1",
     "_bookHeight": 22.0,
     "_bookWidth": 15.0,
-    "_categoryList": ["Testing", "JavaScript", "QA"],
+    "_categoryList": [
+      "Testing",
+      "JavaScript",
+      "QA"
+    ],
     "_numPages": 270,
     "_publishYear": 2024,
     "_cost": 17.80,
@@ -230,9 +282,10 @@
       "_firstName": "Miguel",
       "_lastName": "Torres",
       "_age": 33,
-      "_listBook": ["Testing en JS"],
+      "_listBook": [
+        "Testing en JS"
+      ],
       "_qualification": 4.6
     }
   }
 ]
-
