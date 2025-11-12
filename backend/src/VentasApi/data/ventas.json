@@ -61,5 +61,14 @@
     "CompradorId": 1,
     "VendedorId": 1,
     "IsDeleted": true
+  },
+  {
+    "CodigoDeCompra": 13,
+    "FechaDeVenta": "2025-11-12T17:22:27.191439Z",
+    "MontoTotal": 35.50,
+    "LibroId": 2,
+    "CompradorId": 1,
+    "VendedorId": 1,
+    "IsDeleted": false
   }
 ]

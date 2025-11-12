@@ -19,8 +19,8 @@ describe('SalesList', () => {
   // flush microtasks to allow promises to resolve
   await new Promise((r) => setTimeout(r, 0))
 
-    expect(wrapper.text()).toContain('Ventas registradas')
-    expect(wrapper.html()).toContain('Codigo')
+    expect(wrapper.text()).toContain('Consultar ventas')
+    expect(wrapper.html()).toContain('Código')
 
     // trigger delete by calling method directly
     await wrapper.vm.eliminar(1,1)
