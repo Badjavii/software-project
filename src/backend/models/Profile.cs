@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 using System.Collections.Generic;
 
 namespace backend.models
@@ -13,14 +14,15 @@ namespace backend.models
     public abstract class Profile
     {
         // Atributos privados
-        private string _email;      //**@brief Correo electrónico del usuario.
-        private string _firstName;  //**@brief Nombre del usuario.
-        private string _lastName;   //**@brief Apellido del usuario.
-        private int _age;           //**@brief Edad del usuario.
-        private string _password;   //**@brief Contraseña del usuario. Solo modificable internamente.
+        private string _email = null!;  //**@brief Correo electrónico del usuario.
+        private string _firstName;      //**@brief Nombre del usuario.
+        private string _lastName;       //**@brief Apellido del usuario.
+        private int _age;               //**@brief Edad del usuario.
+        private string _password;       //**@brief Contraseña del usuario. Solo modificable internamente.
+
         /**
          * @brief Constructor principal del perfil.
-         * @param email Correo electrónico del usuario.
+         * @param email Correo electrónico del usuario. Se valida que pertenezca al dominio ucab.edu.ve.
          * @param firstName Nombre del usuario.
          * @param lastName Apellido del usuario.
          * @param age Edad del usuario.
@@ -28,7 +30,7 @@ namespace backend.models
          */
         public Profile(string email, string firstName, string lastName, int age, string password)
         {
-            _email = email ?? throw new ArgumentNullException(nameof(email));
+            Email = email;
             _firstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
             _lastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
             _age = age;
@@ -37,12 +39,24 @@ namespace backend.models
 
         // Getters y Setters
 
-        //**@brief Obtiene o establece el correo electrónico del usuario.
+        //**@brief Obtiene o establece el correo electrónico del usuario. Solo acepta dominios ucab.edu.ve.
         [JsonPropertyName("_email")]
         public string Email
         {
             get => _email;
-            set => _email = value ?? throw new ArgumentNullException(nameof(value));
+            set
+            {
+                if (value == null)
+                    throw new ArgumentNullException(nameof(value));
+
+                // Regex para validar dominio ucab.edu.ve (incluye subdominios como est.ucab.edu.ve)
+                var regex = new Regex(@"^[^@\s]+@([a-z]+\.)?ucab\.edu\.ve$", RegexOptions.IgnoreCase);
+
+                if (!regex.IsMatch(value))
+                    throw new ArgumentException("El correo debe pertenecer al dominio ucab.edu.ve");
+
+                _email = value;
+            }
         }
 
         //**@brief Obtiene o establece el nombre del usuario.
