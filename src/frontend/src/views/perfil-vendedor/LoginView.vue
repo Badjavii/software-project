@@ -1,18 +1,18 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import LoginForm from '../../../components/perfil-comprador/LoginForm.vue';
-import { loginComprador } from '../../../services/buyerService.js';
+import LoginForm from '../../../components/perfil-vendedor/LoginForm.vue';
+import { loginVendedor } from '../../../services/sellerService.js';
 
 const router = useRouter();
 
 async function handleLogin(data) {
   try {
-    const response = await loginComprador(data);
+    const response = await loginVendedor(data);
     if (response.data.success) {
-      localStorage.setItem("buyerEmail", data.email);
-      localStorage.setItem("isBuyerLogged", "true");
-      localStorage.setItem("isSellerLogged", "false");
-      router.push('/comprador/consultar');
+      localStorage.setItem("sellerEmail", data.email);
+      localStorage.setItem("isSellerLogged", "true");
+      localStorage.setItem("isBuyerLogged", "false");
+      router.push('/vendedor/consultar');
     } else {
       alert("Credenciales incorrectas");
     }
@@ -26,7 +26,7 @@ async function handleLogin(data) {
   <article class="login-article">
     <section class="section-left"></section>
     <section class="section-right">
-      <h1 class="login-title">INICIAR SESIÓN COMPRADOR</h1>
+      <h1 class="login-title">INICIAR SESIÓN VENDEDOR</h1>
       <LoginForm @submit="handleLogin" />
     </section>
   </article>

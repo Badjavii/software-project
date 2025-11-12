@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "4W7tgld9BRQ=",
+  "dgSpecHash": "nJpZI2hHWhk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\javie\\OneDrive\\Documentos\\GitHub\\software-project\\src\\backend\\backend.csproj",
+  "projectFilePath": "/home/badjavii/Repositories/software-project/src/backend/backend.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\javie\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.9\\microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
-    "C:\\Users\\javie\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+    "/home/badjavii/.nuget/packages/microsoft.aspnetcore.openapi/9.0.9/microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
+    "/home/badjavii/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512",
+    "/home/badjavii/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.9/microsoft.aspnetcore.app.ref.9.0.9.nupkg.sha512"
   ],
   "logs": []
 }
