@@ -45,10 +45,7 @@ namespace backend.models
             set => _ratings = value ?? new List<float>();
         }
 
-        /**
-         * @brief Agrega un libro al catálogo del vendedor.
-         * @param book Objeto Book que representa el libro a agregar.
-         */
+        //**@brief Agrega un libro al catálogo del vendedor.
         public void AddBook(Book book)
         {
             _catalog.Add(book);

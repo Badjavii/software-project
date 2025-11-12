@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using backend.models;
+using backend.factories;
 using System.Reflection;
 
 namespace backend.repositories
@@ -33,11 +34,7 @@ namespace backend.repositories
         //**@brief Obtiene la instancia única del repositorio
         public static SellerRepository Instance => _instance;
 
-        /**
-         * @brief Carga los datos de vendedores desde el archivo JSON.
-         *
-         * Lee cada objeto, extrae sus atributos, crea instancias con ProfileFactory y las agrega a la lista.
-         */
+        //**@brief Carga los datos de vendedores desde el archivo JSON.
         private void Load()
         {
             // No existe la ruta o el archivo
@@ -69,27 +66,19 @@ namespace backend.repositories
             File.WriteAllText(_jsonPath, json);
         }
 
-        /**
-         * @brief Agrega un nuevo vendedor al repositorio.
-         * @param seller Objeto Seller a agregar.
-         */
+        //**@brief Agrega un nuevo vendedor al repositorio.
         public void AddSeller(Seller seller)
         {
             _sellersList.Add(seller);
         }
 
-        /**
-         * @brief Elimina un vendedor del repositorio.
-         * @param seller Objeto Seller a eliminar.
-         */
+        //**@brief Elimina un vendedor del repositorio.
         public void RemoveSeller(Seller seller)
         {
             _sellersList.Remove(seller);
         }
 
-        /**
-         * @brief Devuelve la lista completa de vendedores.
-         */
+        //**@brief Devuelve la lista completa de vendedores.
         public List<Seller> ReturnSellers()
         {
             return _sellersList;
