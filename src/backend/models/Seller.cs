@@ -31,6 +31,14 @@ namespace backend.models
             _ratings = new List<float>();
         }
 
+        //**@brief Constructor vacio
+        public Seller()
+            : base("", "", "", 0, "")
+        {
+            _catalog = new List<Book>();
+            _ratings = new List<float>();
+        }
+
         //**@brief Obtiene o establece el catálogo de libros del vendedor.
         public List<Book> Catalog
         {

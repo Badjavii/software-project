@@ -209,7 +209,7 @@ public class Book
         try
         {
             string json = File.ReadAllText(rootFile);
-            List<Book> list = JsonSerializer.Deserialize<List<Book>>(json);
+            List<Book>? list = JsonSerializer.Deserialize<List<Book>>(json);
             return list != null ? list : new List<Book>();
         }
         catch (JsonException e)
