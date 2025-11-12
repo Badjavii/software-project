@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "backend", "backend", "{1AE8ACA6-933B-BF2A-3671-3E2EAC007D16}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F57642F3-C37C-D174-720E-6A6AAD5BEE22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VentasApi.Tests", "backend\tests\VentasApi.Tests\VentasApi.Tests.csproj", "{874B8D54-B4A0-A55E-A741-542877D580FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0F9113EE-888A-26D2-68B0-4A7D0A2A8745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VentasApi", "backend\src\VentasApi\VentasApi.csproj", "{E446BB27-ADAF-48F1-43E3-0B105711DA5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{874B8D54-B4A0-A55E-A741-542877D580FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{874B8D54-B4A0-A55E-A741-542877D580FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{874B8D54-B4A0-A55E-A741-542877D580FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{874B8D54-B4A0-A55E-A741-542877D580FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E446BB27-ADAF-48F1-43E3-0B105711DA5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E446BB27-ADAF-48F1-43E3-0B105711DA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E446BB27-ADAF-48F1-43E3-0B105711DA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E446BB27-ADAF-48F1-43E3-0B105711DA5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F57642F3-C37C-D174-720E-6A6AAD5BEE22} = {1AE8ACA6-933B-BF2A-3671-3E2EAC007D16}
+		{874B8D54-B4A0-A55E-A741-542877D580FD} = {F57642F3-C37C-D174-720E-6A6AAD5BEE22}
+		{0F9113EE-888A-26D2-68B0-4A7D0A2A8745} = {1AE8ACA6-933B-BF2A-3671-3E2EAC007D16}
+		{E446BB27-ADAF-48F1-43E3-0B105711DA5E} = {0F9113EE-888A-26D2-68B0-4A7D0A2A8745}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AE95C16-A681-4EE7-95C4-29316AC79F3E}
+	EndGlobalSection
+EndGlobal

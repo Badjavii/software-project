@@ -1,1 +1,65 @@
-[]
+[
+  {
+    "CodigoDeCompra": 1,
+    "FechaDeVenta": "2025-11-08T18:11:55.063141Z",
+    "MontoTotal": 29.99,
+    "LibroId": 1,
+    "CompradorId": 1,
+    "VendedorId": 1,
+    "IsDeleted": true
+  },
+  {
+    "CodigoDeCompra": 2,
+    "FechaDeVenta": "2025-11-08T18:12:08.233605Z",
+    "MontoTotal": 29.99,
+    "LibroId": 1,
+    "CompradorId": 1,
+    "VendedorId": 1,
+    "IsDeleted": false
+  },
+  {
+    "CodigoDeCompra": 31,
+    "FechaDeVenta": "2025-11-08T18:12:19.033021Z",
+    "MontoTotal": 29.99,
+    "LibroId": 1,
+    "CompradorId": 1,
+    "VendedorId": 1,
+    "IsDeleted": true
+  },
+  {
+    "CodigoDeCompra": 0,
+    "FechaDeVenta": "2025-11-08T18:12:36.071276Z",
+    "MontoTotal": 35.50,
+    "LibroId": 2,
+    "CompradorId": 2,
+    "VendedorId": 2,
+    "IsDeleted": false
+  },
+  {
+    "CodigoDeCompra": 8,
+    "FechaDeVenta": "2025-11-08T18:12:49.067355Z",
+    "MontoTotal": 29.99,
+    "LibroId": 1,
+    "CompradorId": 2,
+    "VendedorId": 1,
+    "IsDeleted": false
+  },
+  {
+    "CodigoDeCompra": 5,
+    "FechaDeVenta": "2025-11-10T15:12:40.905212Z",
+    "MontoTotal": 29.99,
+    "LibroId": 1,
+    "CompradorId": 1,
+    "VendedorId": 1,
+    "IsDeleted": false
+  },
+  {
+    "CodigoDeCompra": 78,
+    "FechaDeVenta": "2025-11-10T15:12:51.318295Z",
+    "MontoTotal": 29.99,
+    "LibroId": 1,
+    "CompradorId": 1,
+    "VendedorId": 1,
+    "IsDeleted": true
+  }
+]
