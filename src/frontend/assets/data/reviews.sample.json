@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "LibroId": 101,
+    "UsuarioEmail": "ana.torres@ucab.edu.ve",
+    "UsuarioNombre": "Ana Torres",
+    "Rating": 5,
+    "Comentario": "Excelente guía para repasar lógica antes de parciales."
+  },
+  {
+    "Id": 2,
+    "LibroId": 1,
+    "UsuarioEmail": "marco.design@ucab.edu.ve",
+    "UsuarioNombre": "Marco Design",
+    "Rating": 4,
+    "Comentario": "Me ayudó a practicar animaciones CSS rápidamente."
+  }
+]

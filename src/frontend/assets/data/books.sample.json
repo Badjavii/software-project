@@ -1,0 +1,67 @@
+[
+  {
+    "_id": 101,
+    "_nameBook": "Fundamentos de Programación",
+    "_subtitle": "Una introducción práctica",
+    "_series": "Serie Académica UCAB",
+    "_author": "Freddy Fernandez",
+    "_language": "Español",
+    "_publisher": "Editorial UCAB",
+    "_bookCover": "Carton",
+    "_typeBook": "Físico",
+    "_bookVolume": "Volumen I",
+    "_bookHeight": 23.5,
+    "_bookWidth": 15.0,
+    "_categoryList": [
+      "Programación",
+      "Educación",
+      "Informática"
+    ],
+    "_numPages": 320,
+    "_publishYear": 2025,
+    "_cost": 18.99,
+    "_seller": {
+      "_email": "vendedor@ucab.edu.ve",
+      "_firstName": "Carlos",
+      "_lastName": "González",
+      "_age": 29,
+      "_listBook": [
+        "Fundamentos de Programación",
+        "Algoritmos y Estructuras de Datos"
+      ],
+      "_qualification": 4.8
+    }
+  },
+  {
+    "_id": 1,
+    "_nameBook": "Diseño Web Moderno",
+    "_subtitle": "CSS y Animaciones",
+    "_series": "Frontend Pro",
+    "_author": "Freddy Fernandez",
+    "_language": "Español",
+    "_publisher": "UCAB Press",
+    "_bookCover": "cartón",
+    "_typeBook": "Físico",
+    "_bookVolume": "Vol. 1",
+    "_bookHeight": 21.0,
+    "_bookWidth": 14.8,
+    "_categoryList": [
+      "Diseño",
+      "Web",
+      "CSS"
+    ],
+    "_numPages": 250,
+    "_publishYear": 2025,
+    "_cost": 15.99,
+    "_seller": {
+      "_email": "ventas@ucab.edu.ve",
+      "_firstName": "Lucía",
+      "_lastName": "Torres",
+      "_age": 32,
+      "_listBook": [
+        "Diseño Web Moderno"
+      ],
+      "_qualification": 4.5
+    }
+  }
+]

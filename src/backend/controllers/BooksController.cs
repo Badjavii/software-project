@@ -1,6 +1,6 @@
-﻿
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using backend.models;
+using System.IO;
 
 namespace backend.controllers;
 
@@ -13,7 +13,7 @@ public class BooksController : ControllerBase
     public IActionResult GetBooks()
     {
         Book b = new Book();
-        String rootFile = "models\\files\\book.json";
+        var rootFile = Path.Combine(AppContext.BaseDirectory, "data", "book.json");
         List<Book> books = b.LoadBooks(rootFile);
         return Ok(books);
     }

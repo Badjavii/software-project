@@ -7,6 +7,7 @@ import BookDetailView from '../views/BookDetailView.vue';
 import BooksView from '../views/BooksView.vue';
 import CatalogView from '../views/CatalogView.vue';
 import HomeView from '../views/HomeView.vue';
+import ReviewsView from '../views/ReviewsView.vue';
 // Importa las vistas del módulo Perfil Comprador
 import ProfileView from '../views/perfil-comprador/ProfileView.vue';
 import LoginView from '../views/perfil-comprador/LoginView.vue';
@@ -22,6 +23,7 @@ const routes = [
     { path: '/', component: HomeView },
     { path: '/catalog', component: CatalogView },
     { path: '/books', component: BooksView },
+    { path: '/resenas', component: ReviewsView },
     {
         path: '/book/:id',
         name: 'BookDetail',
