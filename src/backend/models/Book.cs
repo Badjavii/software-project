@@ -8,9 +8,18 @@ public class Book {
     
     // Attributes
 
+    private int _id;
     private string _nameBook;
+    private string _subtitle;
+    private string _series;
     private string _author;
-    private string _typeBook; 
+    private string _language;
+    private string _publisher;
+    private string _bookCover;
+    private string _typeBook;
+    private string _bookVolume;
+    private float _bookHeight;
+    private float _bookWidth;
     private List<string> _categoryList;
     private int _numPages;
     private int _publishYear;
@@ -20,53 +29,124 @@ public class Book {
     // Methods
 
     // Constructor
-    public Book(string nameBook, string author, string typeBook, List<string> categoryList, int numPages, int publishYear, float cost, Seller seller) {
-        this._nameBook = nameBook;
-        this._author = author;
-        this._typeBook = typeBook;
-        this._categoryList = categoryList;
-        this._numPages = numPages;
-        this._publishYear = publishYear;
-        this._cost = cost;
-        this._seller = seller;
+    public Book(int id, string nameBook, string subtitle, string series, string author, string language, string publisher, string bookCover, string typeBook, string bookVolume, float bookHeight, float bookWidth, List<string> categoryList, int numPages, int publishYear, float cost, Seller seller) {
+        _id = id;
+        _nameBook = nameBook;
+        _subtitle = subtitle;
+        _series = series;
+        _author = author;
+        _language = language;
+        _publisher = publisher;
+        _bookCover = bookCover;
+        _typeBook = typeBook;
+        _bookVolume = bookVolume;
+        _bookHeight = bookHeight;
+        _bookWidth = bookWidth;
+        _categoryList = categoryList;
+        _numPages = numPages;
+        _publishYear = publishYear;
+        _cost = cost;
+        _seller = seller;
     }
 
     public Book() {
-        
-        this._nameBook = "";
-        this._author = "";
-        this._typeBook = "";
-        this._categoryList = new List<string>();
-        this._numPages = 0;
-        this._publishYear = 0;
-        this._cost = 0;
-        this._seller = new Seller();
+        _id = 0;
+        _nameBook = "";
+        _subtitle = "";
+        _series = "";
+        _author = "";
+        _language = "";
+        _publisher = "";
+        _bookCover = "";
+        _typeBook = "";
+        _bookVolume = "";
+        _bookHeight = 0;
+        _bookWidth = 0;
+        _categoryList = new List<string>();
+        _numPages = 0;
+        _publishYear = 0;
+        _cost = 0;
+        _seller = new Seller();
     }
 
     // Getter and Setter
+    
+    [JsonPropertyName("_id")]
+    public int Id {
+        get => _id;
+        set => _id = value;
+    }
 
     [JsonPropertyName("_nameBook")]
     public string NameBook {
         get => _nameBook;
-        set => _nameBook = value ?? throw new ArgumentNullException(nameof(value));
+        set => _nameBook = value;
+    }
+
+    [JsonPropertyName("_subtitle")]
+    public string Subtitle {
+        get => _subtitle;
+        set => _subtitle = value;
+    }
+
+    [JsonPropertyName("_series")]
+    public string Series {
+        get => _series;
+        set => _series = value;
     }
 
     [JsonPropertyName("_author")]
     public string Author {
         get => _author;
-        set => _author = value ?? throw new ArgumentNullException(nameof(value));
+        set => _author = value;
+    }
+
+    [JsonPropertyName("_language")]
+    public string Language {
+        get => _language;
+        set => _language = value;
+    }
+
+    [JsonPropertyName("_publisher")]
+    public string Publisher {
+        get => _publisher;
+        set => _publisher = value;
+    }
+
+    [JsonPropertyName("_bookCover")]
+    public string BookCover {
+        get => _bookCover;
+        set => _bookCover = value;
     }
 
     [JsonPropertyName("_typeBook")]
     public string TypeBook {
         get => _typeBook;
-        set => _typeBook = value ?? throw new ArgumentNullException(nameof(value));
+        set => _typeBook = value;
+    }
+
+    [JsonPropertyName("_bookVolume")]
+    public string BookVolume {
+        get => _bookVolume;
+        set => _bookVolume = value;
+    }
+
+    [JsonPropertyName("_bookHeight")]
+    public float BookHeight {
+        get => _bookHeight;
+        set => _bookHeight = value;
+    }
+
+    [JsonPropertyName("_bookWidth")]
+    public float BookWidth {
+        get => _bookWidth;
+        set => _bookWidth = value;
     }
 
     [JsonPropertyName("_categoryList")]
     public List<string> CategoryList {
         get => _categoryList;
-        set => _categoryList = value ?? throw new ArgumentNullException(nameof(value));
+        set => _categoryList = value;
     }
 
     [JsonPropertyName("_numPages")]
@@ -90,7 +170,7 @@ public class Book {
     [JsonPropertyName("_seller")]
     public Seller Seller {
         get => _seller;
-        set => _seller = value ?? throw new ArgumentNullException(nameof(value));
+        set => _seller = value;
     }
 
     // Verification methods
@@ -105,7 +185,7 @@ public class Book {
     public List<Book> LoadBooks(string rootFile) {
         try {
             string json = File.ReadAllText(rootFile);
-            List<Book> list = JsonSerializer.Deserialize<List<Book>>(json);
+            List<Book>? list = JsonSerializer.Deserialize<List<Book>>(json);
             return  list != null ? list :  new List<Book>();
         }  
         catch (JsonException e) {

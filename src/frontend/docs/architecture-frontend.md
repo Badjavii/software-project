@@ -12,7 +12,7 @@ src/frontend/
 ├── services/
 ├── assets/
 ├── public/
-├── main.ts
+├── main.js
 └── index.html
 ```
 
@@ -44,7 +44,7 @@ Ejemplo: logo.svg, booksy-banner.png, global.css.
 
 Ejemplo: favicon.ico, robots.txt, vite.svg.
 
-### main.ts
+### main.js
 
 - Propósito: Punto de entrada de la aplicación Vue.
 

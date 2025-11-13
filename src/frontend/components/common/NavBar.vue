@@ -12,11 +12,12 @@ import SearchBar from "./SearchBar.vue";
     <section class="nav-bar-two">
       <menu class="navbar-list">
         <li class="navbar-list-item"><router-link to="/" class="link">Inicio</router-link></li>
+        <li class="navbar-list-item"><router-link to="/catalog" class="link">Catálogo</router-link></li>
         <li class="navbar-list-item"><router-link to="/books" class="link">Categorías</router-link></li>
-        <li class="navbar-list-item"><router-link to="/books" class="link">Vender</router-link></li>
-        <li class="navbar-list-item"><router-link to="/books" class="link">Crear cuenta</router-link></li>
-        <li class="navbar-list-item"><router-link to="/books" class="link">Ingresa</router-link></li>
-        <li class="navbar-list-item"><router-link to="/books" class="link">Mis compras</router-link></li>
+        <li class="navbar-list-item"><router-link to="/seller" class="link">Vender</router-link></li>
+        <li class="navbar-list-item"><router-link to="/seller" class="link">Crear cuenta</router-link></li>
+        <li class="navbar-list-item"><router-link to="/seller" class="link">Ingresa</router-link></li>
+        <li class="navbar-list-item"><router-link to="/seller" class="link">Mis compras</router-link></li>
       </menu>
     </section>
   </nav>

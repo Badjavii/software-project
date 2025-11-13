@@ -46,7 +46,7 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1599px) {
   .card-link {
     display: flex;
     height: 12vh;
