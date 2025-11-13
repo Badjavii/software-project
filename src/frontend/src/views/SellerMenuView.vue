@@ -7,6 +7,7 @@
     <router-link class="r-button" to="/seller/registerBook">Registrar libro</router-link>
     <router-link class="r-button" to="/seller/registerBook">Borrar Libro</router-link>
     <router-link class="r-button" to="/seller/registerBook">Ver perfil</router-link>
+    <router-link class="r-button" to="/seller/sale">Vender</router-link>
   </section>
   </article>
 </template>
@@ -22,7 +23,7 @@
 .seller-menu-section {
   display: flex;
   flex-direction: column;
-  height: 60vh;
+  height: 80vh;
   width: 30vw;
 
   margin: 4rem 0 0 0;

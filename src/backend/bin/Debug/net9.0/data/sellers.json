@@ -1,0 +1,94 @@
+[
+    {
+        "_email": "ana.ramirez@ucab.edu.ve",
+        "_firstName": "Ana",
+        "_lastName": "Ramírez",
+        "_age": 34,
+        "_password": "AnaSecure123",
+        "_catalog": [],
+        "_ratings": [
+            4.5,
+            4.8,
+            5.0
+        ]
+    },
+    {
+        "_email": "carlos.gonzalez@ucab.edu.ve",
+        "_firstName": "Carlos",
+        "_lastName": "González",
+        "_age": 42,
+        "_password": "CarlosBooks2025",
+        "_catalog": [],
+        "_ratings": [
+            4.2,
+            4.0,
+            4.6,
+            4.9
+        ]
+    },
+    {
+        "_email": "marcela.suarez@ucab.edu.ve",
+        "_firstName": "Marcela",
+        "_lastName": "Suárez",
+        "_age": 29,
+        "_password": "MarcelaVend3Libros",
+        "_catalog": [],
+        "_ratings": [
+            4.9,
+            5.0,
+            4.7
+        ]
+    },
+    {
+        "_email": "daniel.perez@ucab.edu.ve",
+        "_firstName": "Daniel",
+        "_lastName": "Pérez",
+        "_age": 37,
+        "_password": "DaniBooks2024",
+        "_catalog": [],
+        "_ratings": [
+            4.3,
+            4.4,
+            4.6
+        ]
+    },
+    {
+        "_email": "sofia.martinez@ucab.edu.ve",
+        "_firstName": "Sofía",
+        "_lastName": "Martínez",
+        "_age": 31,
+        "_password": "SofiaEditaLibros",
+        "_catalog": [],
+        "_ratings": [
+            4.8,
+            4.9,
+            5.0
+        ]
+    },
+    {
+        "_email": "jose.rodriguez@ucab.edu.ve",
+        "_firstName": "José",
+        "_lastName": "Rodríguez",
+        "_age": 45,
+        "_password": "JosePublica2023",
+        "_catalog": [],
+        "_ratings": [
+            4.1,
+            4.0,
+            4.2
+        ]
+    },
+    {
+        "_email": "valentina.lopez@ucab.edu.ve",
+        "_firstName": "Valentina",
+        "_lastName": "López",
+        "_age": 26,
+        "_password": "ValenVendeLibros",
+        "_catalog": [],
+        "_ratings": [
+            5.0,
+            4.9,
+            4.8
+        ]
+    }
+]

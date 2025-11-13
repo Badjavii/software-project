@@ -1,19 +1,32 @@
 <script setup lang="js">
-import {onMounted, ref} from 'vue';
-import {getBookList} from '../../services/bookService.js';
+import { onMounted, ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { getBookList } from '../../services/bookService.js';
 import BookCard from '../../components/consultar-libros/cards/catalog-card/BookCard.vue';
 
 const books = ref([]);
 const error = ref(true);
+const route = useRoute();
 
 onMounted(async () => {
-    try {
-      books.value = await getBookList();
-    } catch (error){
-      console.error(error.message)
-    } finally {
-      error.value = false;
-    }
+  try {
+    books.value = await getBookList();
+  } catch (err){
+    console.error(err?.message ?? err);
+  } finally {
+    error.value = false;
+  }
+});
+
+const query = computed(() => (route.query.q || '').toString().toLowerCase());
+
+const filteredBooks = computed(() => {
+  if (!query.value) return books.value || [];
+  return (books.value || []).filter(b => {
+    const title = (b._nameBook || '').toString().toLowerCase();
+    const author = (b._author || '').toString().toLowerCase();
+    return title.includes(query.value) || author.includes(query.value);
+  });
 });
 </script>
 
@@ -23,10 +36,13 @@ onMounted(async () => {
     </section>
     <section id="catalog" class="section-right">
       <h1 class="catalog-title">CATÁLOGO</h1>
-      <p v-if="error">No hay resultados...</p>
+
+      <p v-if="error">Cargando resultados...</p>
+
       <section v-else>
-        <BookCard v-for="b in books" :key="b._id" :book="b" />
-        <p v-if="books.length === 0">No hay libros</p>
+        <p v-if="query && filteredBooks.length === 0">No hay resultados para "{{ route.query.q }}"</p>
+        <BookCard v-for="b in filteredBooks" :key="b._id" :book="b" />
+        <p v-if="!query && books.length === 0">No hay libros</p>
       </section>
     </section>
   </article>
