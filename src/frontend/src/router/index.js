@@ -5,6 +5,7 @@ import {
 
 import BookDetailView from '../views/BookDetailView.vue';
 import BooksView from '../views/BooksView.vue';
+import RegisterBookView from "../views/RegisterBookView.vue";
 import CatalogView from '../views/CatalogView.vue';
 import HomeView from '../views/HomeView.vue';
 // Importa las vistas del módulo Perfil Comprador
@@ -17,9 +18,9 @@ import LoginSellerView from '../views/perfil-vendedor/LoginView.vue';
 import RegisterProfileSellerView from '../views/perfil-vendedor/RegisterProfileView.vue';
 // Importa las vistas del módulo Ventas
 import SalesView from '../views/VenderView.vue';
+import ManageSalesView from '../views/GestionarVentasView.vue';
 // 
-import SellerMenuView from "../views/SellerMenuView.vue";
-import RegisterBookView from "../views/RegisterBookView.vue";
+import SellerMenuView from "../views/perfil-vendedor/SellerMenuView.vue";
 
 const routes = [
 
@@ -52,7 +53,8 @@ const routes = [
     },
 
     // Rutas de Ventas
-    { path: '/vendedor/registrar', component: RegisterProfileSellerView },
+    { path: '/ventas/', component: SalesView },
+    { path: '/ventas/gestionar', component: ManageSalesView },
 
     { path: '/seller', name: 'SellerMenu', component: SellerMenuView },
     { path: '/seller/registerBook', name: 'RegisterBook', component: RegisterBookView }

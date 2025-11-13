@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import { registrarVenta } from '../../../services/salesService.js';
+import { registrarVenta } from '../../services/salesService.js';
 
 const emit = defineEmits<{
   (e: 'registered'): void;

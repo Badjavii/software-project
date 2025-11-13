@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { eliminarVenta, listarVentas, softDeleteVenta } from '../../../services/salesService.js';
+import { eliminarVenta, listarVentas, softDeleteVenta } from '../../services/salesService.js';
 
 type Venta = {
   CodigoDeCompra: number;

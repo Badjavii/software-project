@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import RegisterSale from '../components/ventas/RegisterSale.vue';
-import SalesList from '../components/ventas/SalesList.vue';
+import RegisterSale from '../../components/ventas/RegisterSale.vue';
+import SalesList from '../../components/ventas/SalesList.vue';
 
 const salesList = ref<InstanceType<typeof SalesList> | null>(null);
 
