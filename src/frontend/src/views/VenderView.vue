@@ -15,7 +15,7 @@ const options = [
   {
     title: 'Gestionar Ventas',
     description: 'Registra transacciones, revisa el historial y elimina ventas cuando sea necesario.',
-    to: '/vender/gestion-ventas',
+    to: '/ventas/gestionar',
     cta: 'Gestionar'
   }
 ];
