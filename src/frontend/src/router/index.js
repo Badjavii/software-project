@@ -1,6 +1,6 @@
 import {
-  createRouter,
-  createWebHistory,
+    createRouter,
+    createWebHistory,
 } from 'vue-router';
 
 import BookDetailView from '../views/BookDetailView.vue';
@@ -15,6 +15,11 @@ import RegisterProfileView from '../views/perfil-comprador/RegisterProfileView.v
 import PerfilSellerView from '../views/perfil-vendedor/ProfileView.vue';
 import LoginSellerView from '../views/perfil-vendedor/LoginView.vue';
 import RegisterProfileSellerView from '../views/perfil-vendedor/RegisterProfileView.vue';
+// Importa las vistas del módulo Ventas
+import SalesView from '../views/VenderView.vue';
+// 
+import SellerMenuView from "../views/SellerMenuView.vue";
+import RegisterBookView from "../views/RegisterBookView.vue";
 
 const routes = [
 
@@ -36,7 +41,7 @@ const routes = [
         component: ProfileView,
         meta: { requiresAuth: true } // protegida por sesión
     },
-   
+
     // Rutas para Perfil de Vendedor
     { path: '/vendedor/registrar', component: RegisterProfileSellerView },
     { path: '/vendedor/login', component: LoginSellerView },
@@ -44,7 +49,13 @@ const routes = [
         path: '/comprador/consultar',
         component: PerfilSellerView,
         meta: { requiresAuth: true } // protegida por sesión
-    }
+    },
+
+    // Rutas de Ventas
+    { path: '/vendedor/registrar', component: RegisterProfileSellerView },
+
+    { path: '/seller', name: 'SellerMenu', component: SellerMenuView },
+    { path: '/seller/registerBook', name: 'RegisterBook', component: RegisterBookView }
 ];
 
 const router = createRouter({
