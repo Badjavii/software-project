@@ -1,28 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\javie\\OneDrive\\Documentos\\GitHub\\software-project\\src\\backend\\backend.csproj": {}
+    "C:\\Users\\Freddy\\Documents\\GitHub\\software-project\\src\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\javie\\OneDrive\\Documentos\\GitHub\\software-project\\src\\backend\\backend.csproj": {
+    "C:\\Users\\Freddy\\Documents\\GitHub\\software-project\\src\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\javie\\OneDrive\\Documentos\\GitHub\\software-project\\src\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\Freddy\\Documents\\GitHub\\software-project\\src\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\javie\\OneDrive\\Documentos\\GitHub\\software-project\\src\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\javie\\OneDrive\\Documentos\\GitHub\\software-project\\src\\backend\\obj\\",
+        "projectPath": "C:\\Users\\Freddy\\Documents\\GitHub\\software-project\\src\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\Freddy\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Freddy\\Documents\\GitHub\\software-project\\src\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\javie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Freddy\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,9 +36,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net9.0": {
@@ -71,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

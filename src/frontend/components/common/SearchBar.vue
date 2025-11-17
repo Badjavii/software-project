@@ -1,11 +1,30 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
+const search = ref('');
+const router = useRouter();
+const route = useRoute();
+
+onMounted(() => {
+  const q = route.query.q;
+  if (q) search.value = String(q);
+});
+
+function onSubmit(e: Event) {
+  e.preventDefault();
+  const q = search.value.trim();
+
+  router.push({ path: '/catalog', query: q ? { q } : {} });
+}
 </script>
 
 <template>
-  <form id="form-search-bar">
-    <input id="search-bar" type="text" placeholder="Buscar libros en Booksy UCAB..." />
-    <button class="button-search-bar"><img class="icon-search" alt="Icono de lupa" src="../../assets/img/common/search-icon.png" /></button>
+  <form id="form-search-bar" @submit="onSubmit">
+    <input id="search-bar" v-model="search" type="text" placeholder="Buscar libros en Booksy UCAB..." />
+    <button type="submit" class="button-search-bar">
+      <img class="icon-search" alt="Icono de lupa" src="../../assets/img/common/search-icon.png" />
+    </button>
   </form>
 </template>
 

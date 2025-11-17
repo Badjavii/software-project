@@ -27,6 +27,7 @@ export let getBookList = async () => {
             b._numPages,
             b._publishYear,
             b._cost,
+            b._description,
             b._seller
         ));
         console.log(books);

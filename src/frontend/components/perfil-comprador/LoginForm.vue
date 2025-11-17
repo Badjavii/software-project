@@ -15,44 +15,106 @@ function handleSubmit() {
 </script>
 
 <template>
-  <form class="formulario-login" @submit.prevent="handleSubmit">
-    <input v-model="email" type="email" placeholder="Correo UCAB" required />
-    <input v-model="password" type="password" placeholder="Contraseña" required />
-    <button type="submit">Iniciar Sesión</button>
+  <form @submit.prevent="handleSubmit">
+    <h1>Log-in</h1>
+    <label>
+      Correo UCAB
+      <input v-model="email" type="email" placeholder="example@est.ucab.edu.ve" required />
+    </label>
+    <label>
+      Contraseña
+      <input v-model="password" type="password" placeholder="Ingresar contraseña" required />
+    </label>
+    <fieldset class="fieldset-button">
+      <input type="submit" value="Iniciar sección" />
+      <router-link to="/registerBuyerSection" class="link">Crear cuenta</router-link>
+    </fieldset>
   </form>
 </template>
 
 <style scoped>
-.formulario-login {
+
+form {
   display: flex;
+  height: 55vh;
   flex-direction: column;
-  gap: 1rem;
-  width: 40vw;
-  margin: 4rem auto;
-  padding: 2rem;
+  justify-items: center;
+  align-items: center;
+  gap: 2rem;
+  width: 25vw;
+  padding: 1rem;
   background-color: rgba(255,255,255);
   border-radius: 1rem;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  gap: 1rem;
+}
+
 input {
-  padding: 0.8rem;
-  font-size: 1rem;
+  padding: 1rem;
+  width: 20vw;
+  font-size: 1.5rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
 }
 
-button {
-  padding: 1rem;
+input[type="submit"] {
+  width: 10vw;
+  height: 7.5vh;
+  border-radius: 1rem;
   background-color: #0077cc;
-  color: white;
   border: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
+  color: rgb(255,255,255);
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(0,44,235);
+  animation: jump 1s ease;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #005fa3;
+h1 {
+  font-size: 2.5rem;
+  margin: 2rem 0 1rem 0;
+  color: rgb(0,0,0);
 }
+
+:deep(.link) {
+  height: 7.5vh;
+  width: 10vw;
+
+  display: inline-block;
+  box-sizing: border-box;
+
+  text-align: center;
+  align-content: center;
+
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  background-color: #0077cc;
+}
+
+:deep(.link):hover {
+  background-color: rgb(0,44,235);
+  animation: jump 1s ease;
+  cursor: pointer;
+}
+
+.fieldset-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 25vw;
+  margin: 2rem 0 0 0;
+  gap: 3rem;
+  border: none;
+}
+
 </style>

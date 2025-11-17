@@ -30,8 +30,7 @@ namespace backend.models
             _catalog = new List<Book>();
             _ratings = new List<float>();
         }
-
-        //**@brief Constructor vacio
+        
         public Seller()
             : base("", "", "", 0, "")
         {
@@ -53,7 +52,10 @@ namespace backend.models
             set => _ratings = value ?? new List<float>();
         }
 
-        //**@brief Agrega un libro al catálogo del vendedor.
+        /**
+         * @brief Agrega un libro al catálogo del vendedor.
+         * @param book Objeto Book que representa el libro a agregar.
+         */
         public void AddBook(Book book)
         {
             _catalog.Add(book);

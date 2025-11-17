@@ -1,19 +1,54 @@
-<script setup lang="ts">
+<script setup lang="js">
+defineProps({
+  book: { type: Object, required: true }
+})
 
 </script>
 
 <template>
-  <details>
-    <summary>
-      <h2>Descripción</h2>
-    </summary>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut maiores commodi, laudantium accusamus esse porro
-      explicabo culpa minus repellendus voluptas fugiat est cumque omnis dolorem perspiciatis tenetur. Iusto, dignissimos illum. 
+  <article class="description-detail">
+    <h2 class="description-title">Descripción</h2>
+    <p class="description-text">
+      {{ book._description }}
     </p>
-  </details>
+  </article>
 </template>
 
 <style scoped>
+
+@media (min-width: 1600px){
+  .description-detail {
+    display: flex;
+    margin: 2rem 0 0 0;
+    flex-direction: column;
+    width: 60vw;
+    height: 20vh;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .description-detail {
+    display: flex;
+    margin: 16rem 0 0 0;
+    flex-direction: column;
+    width: 60vw;
+    height: 20vw;
+  }
+}
+
+.description-title{
+  height: 5vh;
+  width: 30vw;
+  font-size: 3rem;
+  font-weight: lighter;
+}
+
+.description-text {
+  width: 35vw;
+
+  font-size: 2rem;
+  font-weight: lighter;
+  color: rgb(100,100,100);
+}
 
 </style>

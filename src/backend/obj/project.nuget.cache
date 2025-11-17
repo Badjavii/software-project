@@ -1,21 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "4W7tgld9BRQ=",
+  "dgSpecHash": "Y1D3ODnfVtk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\javie\\OneDrive\\Documentos\\GitHub\\software-project\\src\\backend\\backend.csproj",
+  "projectFilePath": "C:\\Users\\Freddy\\Documents\\GitHub\\software-project\\src\\backend\\backend.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\javie\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.9\\microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
-    "C:\\Users\\javie\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+    "C:\\Users\\Freddy\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.9\\microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
+    "C:\\Users\\Freddy\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json.",
-      "projectPath": "C:\\Users\\javie\\OneDrive\\Documentos\\GitHub\\software-project\\src\\backend\\backend.csproj",
-      "warningLevel": 1,
-      "filePath": "C:\\Users\\javie\\OneDrive\\Documentos\\GitHub\\software-project\\src\\backend\\backend.csproj",
-      "targetGraphs": []
-    }
-  ]
+  "logs": []
 }

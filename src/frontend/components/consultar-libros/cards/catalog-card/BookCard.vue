@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <router-link :to="{ name: 'BookDetail', params: { id: book._id } }" class="book-card">
+  <router-link :to="{ name: 'BookDetail', params: { id: book._id } }" :key="book._id" class="book-card">
     <section class="card-main">
       <h2 class="title-card">{{ book._nameBook }}</h2>
       <p class="author-card ">Autor: {{ book._author }}</p>

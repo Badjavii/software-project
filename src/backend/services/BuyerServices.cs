@@ -1,6 +1,7 @@
 using backend.models;
 using backend.factories;
 using backend.repositories;
+using ProfileFactory = backend.factories.ProfileFactory;
 
 namespace backend.services
 {
