@@ -13,8 +13,8 @@ defineProps({
     <caption class="table-caption">Otros</caption>
     <tbody class="table-body">
     <tr class="color-gray">
-      <th class="table-head top-table-left" scope="row">Material de la tapa del libro</th>
-      <td class="table-data top-table-right">{{ book._bookCover }}</td>
+      <th class="table-head top-table-left" scope="row">Formato del libro</th>
+      <td class="table-data top-table-right">{{ book._typeBook }}</td>
     </tr>
     <tr class="color-white">
       <th class="table-head" scope="row">Género del libro</th>

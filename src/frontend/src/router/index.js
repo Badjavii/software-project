@@ -1,24 +1,22 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import BooksView from '../views/BooksView.vue';
-import CatalogView from "../views/CatalogView.vue";
-import BookDetailView from "../views/BookDetailView.vue";
-import SellerMenuView from "../views/SellerMenuView.vue";
-import RegisterBookView from "../views/RegisterBookView.vue";
-import LoginBuyerView from "../views/perfil-comprador/LoginBuyerView.vue";
-import LoginView from "../views/perfil-vendedor/LoginView.vue";
-import VenderView from "../views/VenderView.vue";
-import GestionarVentasView from "../views/GestionarVentasView.vue";
-import RegisterProfileView from "../views/perfil-vendedor/RegisterProfileView.vue";
-import RegisterProfileBuyerView from "../views/perfil-comprador/RegisterProfileBuyerView.vue";
+import HomeView from '../views/Libro/HomeView.vue';
+import BooksView from '../views/Libro/BooksView.vue';
+import CatalogView from "../views/Libro/CatalogView.vue";
+import BookDetailView from "../views/Libro/BookDetailView.vue";
+import RegisterBookView from "../views/Libro/RegisterBookView.vue";
+import LoginBuyerView from "../views/Perfil/perfil-comprador/LoginBuyerView.vue";
+import LoginView from "../views/Perfil/perfil-vendedor/LoginView.vue";
+import VenderView from "../views/Venta/VenderView.vue";
+import GestionarVentasView from "../views/Venta/GestionarVentasView.vue";
+import RegisterProfileView from "../views/Perfil/perfil-vendedor/RegisterProfileView.vue";
+import RegisterProfileBuyerView from "../views/Perfil/perfil-comprador/RegisterProfileBuyerView.vue";
 
 const routes = [
     { path: '/', component: HomeView },
     { path: '/catalog', component: CatalogView },
     { path: '/books', component: BooksView },
     { path: '/book/:id', name: 'BookDetail', component: BookDetailView },
-    { path: '/seller', name: 'SellerMenu', component: SellerMenuView },
     { path: '/seller/registerBook', name: 'RegisterBook', component: RegisterBookView },
     { path: '/beginSection', component: LoginBuyerView },
     { path: '/registerBuyerSection', component: RegisterProfileBuyerView },

@@ -22,14 +22,15 @@ public class Book {
     private float _bookWidth;
     private List<string> _categoryList;
     private int _numPages;
-    private int _publishYear;
+    private DateTime _publishYear;
     private float _cost;
+    private string _description;
     private Seller _seller; 
 
     // Methods
 
     // Constructor
-    public Book(int id, string nameBook, string subtitle, string series, string author, string language, string publisher, string bookCover, string typeBook, string bookVolume, float bookHeight, float bookWidth, List<string> categoryList, int numPages, int publishYear, float cost, Seller seller) {
+    public Book(int id, string nameBook, string subtitle, string series, string author, string language, string publisher, string bookCover, string typeBook, string bookVolume, float bookHeight, float bookWidth, List<string> categoryList, int numPages, DateTime publishYear, float cost, string description, Seller seller) {
         _id = id;
         _nameBook = nameBook;
         _subtitle = subtitle;
@@ -46,6 +47,7 @@ public class Book {
         _numPages = numPages;
         _publishYear = publishYear;
         _cost = cost;
+        _description = description;
         _seller = seller;
     }
 
@@ -64,8 +66,9 @@ public class Book {
         _bookWidth = 0;
         _categoryList = new List<string>();
         _numPages = 0;
-        _publishYear = 0;
+        _publishYear = DateTime.Today;
         _cost = 0;
+        _description = "";
         _seller = new Seller();
     }
 
@@ -156,7 +159,7 @@ public class Book {
     }
 
     [JsonPropertyName("_publishYear")]
-    public int PublishYear {
+    public DateTime PublishYear {
         get => _publishYear;
         set => _publishYear = value;
     }
@@ -167,7 +170,13 @@ public class Book {
         set => _cost = value;
     }
 
-    [JsonPropertyName("_seller")]
+    [JsonPropertyName("_description")]
+    public string Description {
+        get => _description;
+        set => _description = value;
+    }
+
+    [JsonPropertyName("_seller")] 
     public Seller Seller {
         get => _seller;
         set => _seller = value;

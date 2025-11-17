@@ -21,47 +21,142 @@ function handleSubmit() {
 </script>
 
 <template>
-  <form class="formulario-perfil" @submit.prevent="handleSubmit">
-    <input v-model="email" placeholder="Correo UCAB" required />
-    <input v-model="firstName" placeholder="Nombre" required />
-    <input v-model="lastName" placeholder="Apellido" required />
-    <input v-model="age" type="number" placeholder="Edad" required />
-    <input v-model="password" type="password" placeholder="Contraseña" required />
-    <button type="submit">Registrarse</button>
+  <form class="form-profile" @submit.prevent="handleSubmit">
+    <h1>CREAR CUENTA</h1>
+    <fieldset>
+      <label for="nameInput">
+        Nombre
+        <input id="nameInput" v-model="firstName" placeholder="Nombre" required />
+      </label>
+
+      <label for="lastName">
+        Apellido
+        <input id="lastName" v-model="lastName" placeholder="Apellido" required />
+      </label>
+    </fieldset>
+
+    <label for="email">
+      Correo UCAB
+      <input id="email" v-model="email" placeholder="example@est.ucab.edu.ve" required />
+    </label>
+
+    <label for="age">
+      Edad
+      <input id="age" v-model="age" type="number" placeholder="18" required />
+    </label>
+
+    <label for="password">
+      Contraseña
+      <input id="password" v-model="password" type="password" placeholder="Ingresar contraseña" required />
+    </label>
+
+    <fieldset class="fieldset-button">
+      <input type="submit" value="Crear cuenta" />
+      <router-link to="/beginSection" class="link">Iniciar sección</router-link>
+    </fieldset>
+
   </form>
 </template>
 
 <style scoped>
-.formulario-perfil {
+
+form {
   display: flex;
+  height: 75vh;
   flex-direction: column;
-  gap: 1rem;
-  width: 40vw;
-  margin: 4rem auto;
+  align-items: center;
   padding: 2rem;
+  gap: 2rem;
+  width: 38vw;
   background-color: rgba(255,255,255);
   border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+fieldset {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  gap: 1rem;
+}
+
+fieldset label input {
+  width: 15vw;
+}
+
+form fieldset {
+  border: none;
+}
+
+#email, #age, #password {
+  width: 35vw;
 }
 
 input {
-  padding: 0.8rem;
-  font-size: 1rem;
+  padding: 1rem;
+  font-size: 1.5rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
 }
 
-button {
-  padding: 1rem;
+input[type="submit"] {
+  width: 14vw;
+  height: 7.5vh;
+  border-radius: 1rem;
   background-color: #0077cc;
-  color: white;
   border: none;
-  border-radius: 0.5rem;
-  font-weight: bold;
+  color: rgb(255,255,255);
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(0,44,235);
+  animation: jump 1s ease;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #005fa3;
+h1 {
+  font-size: 2.5rem;
+  margin: 2rem 0 1rem 0;
+  color: rgb(0,0,0);
 }
+
+:deep(.link) {
+  height: 7.5vh;
+  width: 14vw;
+
+  display: inline-block;
+  box-sizing: border-box;
+
+  text-align: center;
+  align-content: center;
+
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  background-color: #0077cc;
+}
+
+:deep(.link):hover {
+  background-color: rgb(0,44,235);
+  animation: jump 1s ease;
+  cursor: pointer;
+}
+
+.fieldset-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 25vw;
+  margin: 1.5rem 0 0 0;
+  gap: 3rem;
+  border: none;
+}
+
 </style>

@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import LoginForm from '../../../components/perfil-vendedor/LoginForm.vue';
+import LoginForm from '../../../components/perfil-vendedor/LoginFormSeller.vue';
 import { loginVendedor } from '../../../services/sellerService.js';
 
 const router = useRouter();

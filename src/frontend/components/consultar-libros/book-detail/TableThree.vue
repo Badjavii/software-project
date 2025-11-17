@@ -10,7 +10,7 @@ defineProps({
 
 <template>
   <table class="table">
-    <caption class="table-caption " >Peso y dimensiones</caption>
+    <caption class="table-caption " >Dimensiones y número de páginas</caption>
     <tbody class="table-body">
     <tr class="color-gray">
       <th class="table-head top-table-left" scope="row">Altura</th>
@@ -21,8 +21,8 @@ defineProps({
       <td class="table-data">{{ book._bookWidth }}cm</td>
     </tr>
     <tr class="color-gray">
-      <th class="table-head bottom-table-left" scope="row">Peso</th>
-      <td class="table-data bottom-table-right">{{ book._bookWeight }}</td>
+      <th class="table-head bottom-table-left" scope="row">Número de páginas</th>
+      <td class="table-data bottom-table-right">{{ book._numPages }}</td>
     </tr>
     </tbody>
   </table>

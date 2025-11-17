@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script setup lang="js">
+defineProps({
+  book: { type: Object, required: true }
+})
 
 </script>
 
@@ -6,8 +9,7 @@
   <article class="description-detail">
     <h2 class="description-title">Descripción</h2>
     <p class="description-text">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut maiores commodi, laudantium accusamus esse porro
-      explicabo culpa minus repellendus voluptas fugiat est cumque omnis dolorem perspiciatis tenetur. Iusto, dignissimos illum. 
+      {{ book._description }}
     </p>
   </article>
 </template>

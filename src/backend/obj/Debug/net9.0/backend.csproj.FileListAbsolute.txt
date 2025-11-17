@@ -71,3 +71,5 @@ C:\Users\Freddy\Documents\GitHub\software-project\src\backend\obj\Debug\net9.0\b
 C:\Users\Freddy\Documents\GitHub\software-project\src\backend\obj\Debug\net9.0\ref\backend.dll
 C:\Users\PC\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\data\buyers.json
 C:\Users\PC\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\data\sellers.json
+C:\Users\Freddy\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\data\buyers.json
+C:\Users\Freddy\Documents\GitHub\software-project\src\backend\bin\Debug\net9.0\data\sellers.json
