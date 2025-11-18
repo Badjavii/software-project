@@ -1,8 +1,8 @@
 <script setup lang="js">
 import { onMounted, ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { getBookList } from '../../../services/bookService.js';
-import BookCard from '../../../components/consultar-libros/cards/catalog-card/BookCard.vue';
+import { getBookList } from '../../../services/Libro/bookService.js';
+import BookCard from '../../../components/Libro/consultar-libro/catalog-card/BookCard.vue';
 
 const books = ref([]);
 const error = ref(true);

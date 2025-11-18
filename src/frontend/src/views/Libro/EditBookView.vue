@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { postBook } from "../../../services/bookService.js"; // nueva función a crear
+import { postBook } from "../../../services/Libro/bookService.js"; // nueva función a crear
 
 defineProps({
   book: { type: Object, required: true }

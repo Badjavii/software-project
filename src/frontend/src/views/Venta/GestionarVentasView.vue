@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import '../../../components/ventas/RegisterSale.vue';
-import '../../../components/ventas/SalesList.vue';
+import RegisterSale from '../../../components/Venta/RegisterSale.vue';
+import SalesList from '../../../components/Venta/SalesList.vue';
 
 const salesList = ref<InstanceType<typeof SalesList> | null>(null);
 
@@ -11,12 +11,15 @@ function handleRegistered() {
 </script>
 
 <template>
-      <div class="header-copy">
+
+    <article class="ventas-header">
+      <section>
         <h1>Panel de gestión de ventas</h1>
         <p>Registra tus transacciones y controla el historial de ventas en un solo lugar.</p>
-      </div>
+      </section>
+    </article>
 
-    <main class="ventas-grid">
+    <article class="ventas-grid">
       <section class="card">
         <div class="card-header">
           <h2>Registrar una nueva venta</h2>
@@ -32,19 +35,14 @@ function handleRegistered() {
         </div>
         <SalesList ref="salesList" />
       </section>
-    </main>
+    </article>
 </template>
 
 <style scoped>
-.ventas-app {
-  min-height: 100vh;
-  background: linear-gradient(180deg, #001731, #02274f 60%, #042f63);
-  padding-bottom: 3rem;
-}
 
-.ventas-grid{
+.ventas-header {
   display: flex;
-  flex-direction: column;
+  width: 90vw;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -52,58 +50,28 @@ function handleRegistered() {
   color: white;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.logo-circle {
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #2b89ff, #5ac2ff);
-  color: #fff;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: 0 8px 16px rgba(33, 131, 255, 0.35);
-}
-
-.brand-title {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 1.2rem;
-}
-
-.brand-text small {
-  display: block;
-  font-size: 0.75rem;
-  color: #c0d9ff;
-}
-
-.header-copy h1 {
+section h1 {
   margin: 0;
   font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.header-copy p {
+section p {
   margin: 0.4rem 0 0;
   color: rgba(255, 255, 255, 0.85);
   max-width: 520px;
 }
 
 .ventas-grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
   padding: 0 clamp(1.5rem, 5vw, 4rem);
 }
 
 .card {
+  width: 90vw;
   background: #fdfdff;
   border-radius: 22px;
   padding: clamp(1.25rem, 3vw, 1.75rem);

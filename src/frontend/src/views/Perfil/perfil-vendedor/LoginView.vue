@@ -1,8 +1,8 @@
 <script setup>
 import { useRouter } from 'vue-router';
-import LoginFormSeller from '../../../../components/perfil-vendedor/LoginFormSeller.vue';
-import { loginVendedor } from '../../../../services/sellerService.js';
-import FormProfile from "../../../../components/perfil-vendedor/FormProfile.vue";
+import LoginFormSeller from '../../../../components/perfil/perfil-vendedor/LoginFormSeller.vue';
+import { loginVendedor } from '../../../../services/Perfil/sellerService.js';
+import FormProfile from "../../../../components/perfil/perfil-vendedor/FormProfile.vue";
 
 const router = useRouter();
 

@@ -1,4 +1,5 @@
-<script setup lang="ts">
+<script setup lang="js">
+
 const options = [
   {
     title: 'Registrar perfil de vendedor',
@@ -29,24 +30,30 @@ const options = [
     description: 'Registra todos los libros que deseas sacar del stock.',
     to: '/ventas/gestionar',
     cta: 'Eliminar'
+  },
+  {
+    title: 'Editar libro',
+    description: 'Editar tus libros',
+    to: '/seller/editBook',
+    cta: 'Editar'
   }
 ];
 </script>
 
 <template>
-  <section class="seller-hub">
-    <header class="hero">
-      <p class="tag">Vender en Booksy</p>
-      <h1>Controla tu negocio desde un solo panel</h1>
+  <article class="seller-hub">
+    <section class="hero">
+      <h1 class="tag">Vender en Booksy</h1>
+      <p>Controla tu negocio desde un solo panel</p>
       <p>Selecciona la acción que necesitas para continuar creciendo dentro del marketplace.</p>
-    </header>
+    </section>
 
-      <article v-for="option in options" :key="option.title" class="option-card">
+      <section v-for="option in options" :key="option.title" class="option-card">
         <h2>{{ option.title }}</h2>
         <p>{{ option.description }}</p>
         <router-link class="card-button" :to="option.to">{{ option.cta }}</router-link>
-      </article>
-  </section>
+      </section>
+  </article>
 </template>
 
 <style scoped>
