@@ -16,7 +16,7 @@ import SearchBar from "./SearchBar.vue";
         <li class="navbar-list-item"><router-link to="/books" class="link">Categorías</router-link></li>
         <li class="navbar-list-item"><router-link to="/seller/sale" class="link">Vender</router-link></li>
         <li class="navbar-list-item"><router-link to="/registerBuyerSection" class="link">Crear cuenta</router-link></li>
-        <li class="navbar-list-item"><router-link to="/beginSellerSection" class="link">Ingresa</router-link></li>
+        <li class="navbar-list-item"><router-link to="/beginSection" class="link">Ingresa</router-link></li>
       </menu>
     </section>
   </nav>

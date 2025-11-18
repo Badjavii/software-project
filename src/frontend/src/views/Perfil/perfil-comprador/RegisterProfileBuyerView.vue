@@ -2,9 +2,9 @@
 import { useRouter } from 'vue-router';
 
 import FormularioPerfil
-  from '../../../../components/perfil-comprador/FormProfile.vue';
-import { registrarComprador } from '../../../../services/buyerService.js';
-import FormProfile from "../../../../components/perfil-comprador/FormProfile.vue";
+  from '../../../../components/perfil/perfil-comprador/FormProfile.vue';
+import { registrarComprador } from '../../../../services/Perfil/buyerService.js';
+import FormProfile from '../../../../components/perfil/perfil-comprador/FormProfile.vue';
 
 const router = useRouter();
 

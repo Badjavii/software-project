@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import { registrarVenta } from '../../services/salesService.js';
+import { registrarVenta } from '../../services/Venta/salesService.js';
 
 const emit = defineEmits<{
   (e: 'registered'): void;
@@ -41,7 +41,7 @@ async function submit() {
       err?.response?.data?.message ||
       err?.response?.data?.error ||
       err?.message ||
-      'No se pudo registrar la venta.';
+      'No se pudo registrar la Venta.';
   } finally {
     loading.value = false;
   }
@@ -94,7 +94,7 @@ async function submit() {
 
     <div class="actions">
       <button class="card-button" type="submit" :disabled="loading">
-        {{ loading ? 'Registrando…' : 'Registrar venta' }}
+        {{ loading ? 'Registrando…' : 'Registrar Venta' }}
       </button>
     </div>
 

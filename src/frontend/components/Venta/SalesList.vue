@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { eliminarVenta, listarVentas, softDeleteVenta } from '../../services/salesService.js';
+import { eliminarVenta, listarVentas, softDeleteVenta } from '../../services/Venta/salesService.js';
 
 type Venta = {
   CodigoDeCompra: number;
@@ -38,7 +38,7 @@ async function marcarEliminada(codigo: number) {
     await softDeleteVenta(codigo);
     ventas.value = ventas.value.filter((v) => v.CodigoDeCompra !== codigo);
   } catch (err: any) {
-    error.value = err?.response?.data?.message || err?.message || 'No se pudo eliminar la venta.';
+    error.value = err?.response?.data?.message || err?.message || 'No se pudo eliminar la Venta.';
   }
 }
 
@@ -47,7 +47,7 @@ async function eliminarVentaDefinitiva(codigo: number) {
     await eliminarVenta(codigo);
     ventas.value = ventas.value.filter((v) => v.CodigoDeCompra !== codigo);
   } catch (err: any) {
-    error.value = err?.response?.data?.message || err?.message || 'No se pudo eliminar la venta.';
+    error.value = err?.response?.data?.message || err?.message || 'No se pudo eliminar la Venta.';
   }
 }
 

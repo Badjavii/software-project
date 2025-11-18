@@ -1,25 +1,61 @@
 <script setup>
 import { ref } from "vue";
-import { postBook } from "../../../services/Libro/bookService.js"; // nueva función a crear
+import { postBook } from "../../../../services/Libro/bookService.js";
+import {Book} from "../../../../assets/js/Book.js";
+
+import { Seller } from '../../../../assets/js/Seller.js';
+
+const sellerEjemplo = new Seller(
+  "vendedor@ejemplo.com",   // _email
+  "Juan",                   // _firstName
+  "Pérez",                  // _lastName
+  35,                       // _age
+  "password123",            // _password
+  [],                       // _listBook (puedes dejarlo vacío o luego añadir libros)
+  5                         // _qualification
+);
+
+// Ahora creamos un libro de ejemplo
+const book = new Book(
+  1,                        // _id
+  "Cien años de soledad",   // _nameBook
+  "Edición especial",       // _subtitle
+  "Serie Realismo Mágico",  // _series
+  "Gabriel García Márquez", // _author
+  "Español",                // _language
+  "Editorial Sudamericana", // _publisher
+  "Dura",                   // _bookCover
+  "Físico",                 // _typeBook
+  "Volumen I",              // _bookVolume
+  23.5,                     // _bookHeight
+  15.0,                     // _bookWidth
+  ["Realismo mágico", "Novela"], // _categoryList
+  471,                      // _numPages
+  1967,                     // _publishYear
+  25.99,                    // _cost
+  "Una de las obras más importantes de la literatura latinoamericana.", // _description
+  sellerEjemplo             // _seller
+);
 
 function okMessage(event){
-  alert('Libro registrado exitosamente')
+  alert('Libro editado exitosamente')
 }
 
 const error = ref(false);
 
-let bookName = ref('');
-let subtitle = ref('');
-let seriesBook = ref('');
-let authorBook = ref('');
-let publisherBook = ref('');
-let volumeBook = ref(0);
-let heightBook = ref(0);
-let widthBook = ref(0);
-let numPagesBook = ref(0);
-let publishYearBook = ref('');
-let costBook = ref(0);
-let description = ref('');
+let bookName = ref(book._nameBook);
+let subtitle = ref(book._subtitle);
+let seriesBook = ref(book._series);
+let authorBook = ref(book._author);
+let publisherBook = ref(book._publisher);
+let volumeBook = ref(book._bookVolume);
+let heightBook = ref(book._bookHeight);
+let widthBook = ref(book._bookWidth);
+let numPagesBook = ref(book._numPages);
+let publishYearBook = ref(book._publishYear);
+let costBook = ref(book._cost);
+let description = ref(book._description);
+let seller = ref(book._seller);
 
 let categoriesBookItems = ["Otro", "Novela", "Cuento", "Poesía", "Teatro", "Ensayo", "Crónica", "Biografía",
   "Autobiografía", "Memorias", "Diarios", "Epistolar", "Fábula", "Leyenda", "Mito", "Relato corto", "Narrativa",
@@ -28,16 +64,16 @@ let categoriesBookItems = ["Otro", "Novela", "Cuento", "Poesía", "Teatro", "Ens
   "Satírica", "Didáctica", "Académica", "Periodística", "Divulgación científica", "Filosófica", "Política",
   "Religiosa", "Espiritual", "Viajes", "Aventura", "Erótica", "Gótica", "Costumbrista", "Experimental", "Minimalista",
   "Posmoderna"]
-let categoriesBook = ref([]);
+let categoriesBook = ref(book._categoryList);
 
 let coverBookItem = ['Dura', 'Blanda'];
-let coverBook = ref([]);
+let coverBook = ref(book._bookCover);
 
 let typeBookItem = ['Físico', 'Digital'];
-let typeBook = ref([]);
+let typeBook = ref(book._typeBook);
 
 let languageBookItem = ['Español', 'Ingles', 'Portuguese', 'Alemán', 'Italiano', 'Frances']
-let languageBook = ref([]);
+let languageBook = ref(book._language);
 
 async function handleSubmit(event) {
   event.preventDefault();
@@ -74,7 +110,7 @@ async function handleSubmit(event) {
     okMessage();
 
   } catch (err) {
-    console.error("Error al registrar libro:", err);
+    console.error("Error al editar libro:", err);
     error.value = true;
   }
 }
@@ -84,7 +120,7 @@ async function handleSubmit(event) {
 <article>
   <form action="" @submit.prevent="handleSubmit">
 
-    <h1>REGISTRAR LIBRO</h1>
+    <h1>EDITAR LIBRO</h1>
 
     <fieldset id="partOne">
       <legend>Características principales</legend>
@@ -93,36 +129,37 @@ async function handleSubmit(event) {
 
         <label for="nameBook">
           Titulo
-          <input v-model="bookName" id="nameBook" placeholder="Ingresar titulo del libro" type="text" required />
+          <input v-model="bookName" id="nameBook" value="{{ bookName }}"  type="text" required />
         </label>
 
         <label for="subtitleBook">
           Sub-titulo
-          <input v-model="subtitle" id="subtitleBook" placeholder="Ingresar sub-titulo del libro" type="text" required />
+          <input v-model="subtitle" id="subtitleBook" value="{{ subtitle }}" type="text" required />
         </label>
+
       </fieldset>
 
       <fieldset class="fieldsetPart">
         <label for="seriesBook">
           Serie
-          <input v-model="seriesBook" id="seriesBook" placeholder="Ingresar serie del libro" type="text" required />
+          <input v-model="seriesBook" value="{{ seriesBook }}" id="seriesBook" type="text" required />
         </label>
 
         <label for="authorBook">
           Autor
-          <input v-model="authorBook" id="authorBook" placeholder="Ingresar autor del libro" type="text" required />
+          <input v-model="authorBook" id="authorBook" value="{{ authorBook }}" type="text" required />
         </label>
       </fieldset>
 
       <fieldset class="fieldsetPart">
         <label for="publishYearBook">
           Año de publicación
-          <input v-model="publishYearBook" id="publishYearBook" placeholder="Ingresar año de publicación del libro" type="date" />
+          <input v-model="publishYearBook" id="publishYearBook" value="{{ publishYearBook }}" type="date" />
         </label>
 
         <label for="publisherBook">
           Editorial
-          <input v-model="publisherBook" id="publisherBook" placeholder="Ingresar editorial del libro" type="text" required />
+          <input v-model="publisherBook" id="publisherBook" value="{{ publisherBook }}" type="text" required />
         </label>
       </fieldset>
     </fieldset>
@@ -206,7 +243,7 @@ async function handleSubmit(event) {
 
     </fieldset>
 
-    <input class="register-book-button" type="submit" value="Registrar libro" />
+    <input class="register-book-button" type="submit" value="Editar libro" />
   </form>
 </article>
 </template>
@@ -216,7 +253,6 @@ async function handleSubmit(event) {
 article {
   justify-items: center;
   align-content: center;
-  background-image: url("../../../assets/img/common/gradient_2.jpg");
 
   height: 275vh;
 }
@@ -243,7 +279,7 @@ h1 {
   background-repeat: no-repeat;
   font-size: 3rem;
   text-align: center;
-  background-image: url("../../../assets/img/consultar-libros-img/books-banner.jpg");
+  background-image: url("../../../../assets/img/consultar-libros-img/books-banner.jpg");
   background-size: cover;
   align-content: center;
   margin: 0 0 5rem 0;

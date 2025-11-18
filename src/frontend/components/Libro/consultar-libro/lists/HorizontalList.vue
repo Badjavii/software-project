@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import CategoryCardMath from "../cards/Category/CategoryCardMath.vue";
-import CategoryCardFiction from "../cards/Category/CategoryCardFiction.vue";
-import CategoryCardDesign from "../cards/Category/CategoryCardDesign.vue";
-import CardCategoryClassic from "../cards/Category/CardCategoryClassic.vue";
-import CategoryCardNoFiction from "../cards/Category/CategoryCardNoFiction.vue";
-import CategoryCardPoetry from "../cards/Category/CategoryCardPoetry.vue";
+import CategoryCardMath from "../Category/CategoryCardMath.vue";
+import CategoryCardFiction from "../Category/CategoryCardFiction.vue";
+import CategoryCardDesign from "../Category/CategoryCardDesign.vue";
+import CardCategoryClassic from "../Category/CardCategoryClassic.vue";
+import CategoryCardNoFiction from "../Category/CategoryCardNoFiction.vue";
+import CategoryCardPoetry from "../Category/CategoryCardPoetry.vue";
 </script>
 
 <template>

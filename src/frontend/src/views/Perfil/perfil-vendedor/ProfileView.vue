@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import ProfileCard from '../../../../components/perfil-vendedor/ProfileCard.vue';
-import { consultarVendedor } from '../../../../services/sellerService.js';
+import { consultarVendedor } from '../../../../services/Perfil/sellerService.js';
 
 const perfil = ref(null);
 

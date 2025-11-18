@@ -89,5 +89,37 @@
       "_lastName": "",
       "_age": 0
     }
+  },
+  {
+    "_id": 69227,
+    "_nameBook": "Harry Potter",
+    "_subtitle": "El Pr\u00EDncipe Mestizo",
+    "_series": "Harry Potter",
+    "_author": "J.K Rowling",
+    "_language": "Ingles",
+    "_publisher": "Alejandria",
+    "_bookCover": "Dura",
+    "_typeBook": "Digital",
+    "_bookVolume": "6",
+    "_bookHeight": 30,
+    "_bookWidth": 15,
+    "_categoryList": [
+      "Novela",
+      "Literatura juvenil",
+      "Literatura fant\u00E1stica",
+      "Realismo m\u00E1gico"
+    ],
+    "_numPages": 534,
+    "_publishYear": "2005-12-12T00:00:00",
+    "_cost": 33.6,
+    "_description": "Harry Potter y el misterio del pr\u00EDncipe (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Half-Blood Prince) es el sexto libro de la serie literaria Harry Potter escrito por la autora brit\u00E1nica J. K. Rowling y publicado por primera vez, en ingl\u00E9s, el 16 de julio de 2005.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
   }
 ]

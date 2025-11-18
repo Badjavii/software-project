@@ -11,6 +11,7 @@ import VenderView from "../views/Venta/VenderView.vue";
 import GestionarVentasView from "../views/Venta/GestionarVentasView.vue";
 import RegisterProfileView from "../views/Perfil/perfil-vendedor/RegisterProfileView.vue";
 import RegisterProfileBuyerView from "../views/Perfil/perfil-comprador/RegisterProfileBuyerView.vue";
+import EditBookView from "../views/Libro/modificar-libro/EditBookView.vue";
 
 const routes = [
     { path: '/', component: HomeView },
@@ -23,7 +24,8 @@ const routes = [
     { path: '/beginSellerSection', component: LoginView },
     { path: '/registerSellerSection', component: RegisterProfileView },
     { path: '/seller/sale', component: VenderView},
-    { path: '/gestionarVenta/sale', component: GestionarVentasView }
+    { path: '/gestionarVenta/sale', component: GestionarVentasView },
+    { path: '/seller/editBook', component: EditBookView, props: true }
 ];
 
 const router = createRouter({

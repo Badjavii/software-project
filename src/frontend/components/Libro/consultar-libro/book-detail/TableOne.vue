@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import '../../../assets/styles/components-style/table-book-detail.css';
+import '../../../../assets/styles/components-style/table-book-detail.css';
 
 defineProps({
   book: {type: Object, required: true }

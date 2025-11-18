@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import CardEcosystemOne from "./cards/ecosystem-card/CardEcosystemOne.vue";
-import CardEcosystemTwo from "./cards/ecosystem-card/CardEcosystemTwo.vue";
-import CardEcosystemThree from "./cards/ecosystem-card/CardEcosystemThree.vue";
+import CardEcosystemOne from "./ecosystem-card/CardEcosystemOne.vue";
+import CardEcosystemTwo from "./ecosystem-card/CardEcosystemTwo.vue";
+import CardEcosystemThree from "./ecosystem-card/CardEcosystemThree.vue";
 </script>
 
 <template>
@@ -28,7 +28,7 @@ import CardEcosystemThree from "./cards/ecosystem-card/CardEcosystemThree.vue";
 
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
     linear-gradient(to top, rgb(5, 33, 52), transparent),
-    url("assets/img/consultar-libros-img/background.png");
+    url("../../../assets/img/consultar-libros-img/background.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -75,7 +75,7 @@ import CardEcosystemThree from "./cards/ecosystem-card/CardEcosystemThree.vue";
 
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
     linear-gradient(to top, rgb(5, 33, 52), transparent),
-    url("assets/img/consultar-libros-img/background.png");
+    url("../../../assets/img/consultar-libros-img/background.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

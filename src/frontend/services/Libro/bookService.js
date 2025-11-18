@@ -3,7 +3,7 @@
 // relative root: src/frontend/services/bookService.js
 
 import axios from "axios";
-import {Book} from '../assets/js/Book.js';
+import {Book} from '../../assets/js/Book.js';
 
 const API_URL = "http://localhost:5000/api/";
 

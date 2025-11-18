@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import CardRectangleThree from "./cards/discovery/CardRectangleThree.vue";
-import CardRectangleTwo from "./cards/discovery/CardRectangleTwo.vue";
-import CardRectangleOne from "./cards/discovery/CardRectangleOne.vue";
-import CardRectangleFour from "./cards/discovery/CardRectangleFour.vue";
+import CardRectangleThree from "./discovery/CardRectangleThree.vue";
+import CardRectangleTwo from "./discovery/CardRectangleTwo.vue";
+import CardRectangleOne from "./discovery/CardRectangleOne.vue";
+import CardRectangleFour from "./discovery/CardRectangleFour.vue";
 </script>
 
 <template>
