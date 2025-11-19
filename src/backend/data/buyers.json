@@ -1,0 +1,51 @@
+[
+    {
+        "_email": "lucia.fernandez@ucab.edu.ve",
+        "_firstName": "Lucía",
+        "_lastName": "Fernández",
+        "_age": 28,
+        "_password": "LecturaSegura1"
+    },
+    {
+        "_email": "miguel.torres@ucab.edu.ve",
+        "_firstName": "Miguel",
+        "_lastName": "Torres",
+        "_age": 31,
+        "_password": "MiguelLee2025"
+    },
+    {
+        "_email": "andrea.mendoza@ucab.edu.ve",
+        "_firstName": "Andrea",
+        "_lastName": "Mendoza",
+        "_age": 25,
+        "_password": "AndreaAmaLeer"
+    },
+    {
+        "_email": "javier.rojas@ucab.edu.ve",
+        "_firstName": "Javier",
+        "_lastName": "Rojas",
+        "_age": 33,
+        "_password": "JaviCompraLibros"
+    },
+    {
+        "_email": "valeria.santos@ucab.edu.ve",
+        "_firstName": "Valeria",
+        "_lastName": "Santos",
+        "_age": 30,
+        "_password": "ValeriaLectora2024"
+    },
+    {
+        "_email": "fernando.diaz@ucab.edu.ve",
+        "_firstName": "Fernando",
+        "_lastName": "Díaz",
+        "_age": 27,
+        "_password": "FerLeeMucho"
+    },
+    {
+        "_email": "camila.perez@ucab.edu.ve",
+        "_firstName": "Camila",
+        "_lastName": "Pérez",
+        "_age": 22,
+        "_password": "CamilaLibrosUCAB"
+    }
+]

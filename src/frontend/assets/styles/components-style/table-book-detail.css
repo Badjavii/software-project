@@ -1,0 +1,59 @@
+
+.table {
+    height: 30vh;
+    width: 20vw;
+    border-radius: 1rem;
+    font-weight: lighter;
+}
+
+.table-caption {
+    margin: 0 0 1.5rem 0;
+
+    text-align: left;
+    font-size: 1.9rem;
+    font-weight: lighter;
+}
+
+.color-white {
+    background-color: rgb(255,255,255);
+}
+
+.color-gray {
+    background-color: rgb(220,220,220);
+}
+
+.table-data{
+    margin: 0 0 0 0;
+    padding: 2rem;
+
+    font-size: 1.2rem;
+    text-align: left;
+    font-weight: lighter;
+    border: none;
+}
+
+.table-head{
+    margin: 0 0 0 0;
+    padding: 2rem;
+
+    font-size: 1.2rem;
+    text-align: left;
+    font-weight: bold;
+    border: none;
+}
+
+.top-table-left {
+    border-radius: 1rem 0 0 0;
+}
+
+.top-table-right {
+    border-radius: 0 1rem 0 0;
+}
+
+.bottom-table-right {
+    border-radius: 0 0 1rem 0;
+}
+
+.bottom-table-left {
+    border-radius: 0 0 0 1rem;
+}

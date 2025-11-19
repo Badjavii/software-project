@@ -1,0 +1,154 @@
+[
+  {
+    "_id": 66718,
+    "_nameBook": "Harry Potter",
+    "_subtitle": "El Pr\u00EDncipe Mestizo",
+    "_series": "Harry Potter",
+    "_author": "J.K Rowling",
+    "_language": "I",
+    "_publisher": "Alejandria",
+    "_bookCover": "D",
+    "_typeBook": "F",
+    "_bookVolume": "5",
+    "_bookHeight": 30,
+    "_bookWidth": 15,
+    "_categoryList": [
+      "Novela"
+    ],
+    "_numPages": 250,
+    "_publishYear": "2025-11-15T00:00:00",
+    "_cost": 15.6,
+    "_description": "SDFGDFHFGH",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
+  },
+  {
+    "_id": 80425,
+    "_nameBook": "Harry Potter",
+    "_subtitle": "El Pr\u00EDncipe Mestizo",
+    "_series": "Harry Potter",
+    "_author": "J.K Rowling",
+    "_language": "E",
+    "_publisher": "Alejandria",
+    "_bookCover": "D",
+    "_typeBook": "F",
+    "_bookVolume": "6",
+    "_bookHeight": 30,
+    "_bookWidth": 15,
+    "_categoryList": [
+      "Novela",
+      "Literatura juvenil"
+    ],
+    "_numPages": 658,
+    "_publishYear": "2025-11-15T00:00:00",
+    "_cost": 30.99,
+    "_description": "Harry Potter y el misterio del pr\u00EDncipe (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Half-Blood Prince) es el sexto libro de la serie literaria Harry Potter escrito por la autora brit\u00E1nica J. K. Rowling y publicado por primera vez, en ingl\u00E9s, el 16 de julio de 2005.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
+  },
+  {
+    "_id": 97394,
+    "_nameBook": "Harry Potter",
+    "_subtitle": "El Pr\u00EDncipe Mestizo",
+    "_series": "Harry Potter",
+    "_author": "J.K Rowling",
+    "_language": "Espa\u00F1ol",
+    "_publisher": "Alejandria",
+    "_bookCover": "Dura",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "6",
+    "_bookHeight": 40,
+    "_bookWidth": 20,
+    "_categoryList": [
+      "Novela",
+      "Realismo m\u00E1gico",
+      "Literatura fant\u00E1stica",
+      "Literatura juvenil"
+    ],
+    "_numPages": 655,
+    "_publishYear": "2025-11-15T00:00:00",
+    "_cost": 40,
+    "_description": "Harry Potter y el misterio del pr\u00EDncipe (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Half-Blood Prince) es el sexto libro de la serie literaria Harry Potter escrito por la autora brit\u00E1nica J. K. Rowling y publicado por primera vez, en ingl\u00E9s, el 16 de julio de 2005.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
+  },
+  {
+    "_id": 69227,
+    "_nameBook": "Harry Potter",
+    "_subtitle": "El Pr\u00EDncipe Mestizo",
+    "_series": "Harry Potter",
+    "_author": "J.K Rowling",
+    "_language": "Ingles",
+    "_publisher": "Alejandria",
+    "_bookCover": "Dura",
+    "_typeBook": "Digital",
+    "_bookVolume": "6",
+    "_bookHeight": 30,
+    "_bookWidth": 15,
+    "_categoryList": [
+      "Novela",
+      "Literatura juvenil",
+      "Literatura fant\u00E1stica",
+      "Realismo m\u00E1gico"
+    ],
+    "_numPages": 534,
+    "_publishYear": "2005-12-12T00:00:00",
+    "_cost": 33.6,
+    "_description": "Harry Potter y el misterio del pr\u00EDncipe (t\u00EDtulo original en ingl\u00E9s: Harry Potter and the Half-Blood Prince) es el sexto libro de la serie literaria Harry Potter escrito por la autora brit\u00E1nica J. K. Rowling y publicado por primera vez, en ingl\u00E9s, el 16 de julio de 2005.",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
+  },
+  {
+    "_id": 5551,
+    "_nameBook": "historia de marco aurelio",
+    "_subtitle": "su vida",
+    "_series": "2",
+    "_author": "marco a",
+    "_language": "Espa\u00F1ol",
+    "_publisher": "la salle",
+    "_bookCover": "Dura",
+    "_typeBook": "F\u00EDsico",
+    "_bookVolume": "1",
+    "_bookHeight": 20,
+    "_bookWidth": 10,
+    "_categoryList": [
+      "Poes\u00EDa"
+    ],
+    "_numPages": 321,
+    "_publishYear": "2002-02-01T00:00:00",
+    "_cost": 21,
+    "_description": "la vida de ",
+    "_seller": {
+      "Catalog": [],
+      "Ratings": [],
+      "_email": "vendedor@ejemplo.com",
+      "_firstName": "VendedorEjemplo",
+      "_lastName": "",
+      "_age": 0
+    }
+  }
+]

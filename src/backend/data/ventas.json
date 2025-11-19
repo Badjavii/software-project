@@ -1,0 +1,29 @@
+[
+  {
+    "CodigoDeCompra": 5,
+    "FechaDeVenta": "2025-11-18T00:33:13.868582Z",
+    "MontoTotal": 0,
+    "LibroId": 66718,
+    "CompradorId": 2,
+    "VendedorId": 2,
+    "IsDeleted": false
+  },
+  {
+    "CodigoDeCompra": 6,
+    "FechaDeVenta": "2025-11-19T16:04:50.987738-04:00",
+    "MontoTotal": 15.6,
+    "LibroId": 66718,
+    "CompradorId": 2,
+    "VendedorId": 2,
+    "IsDeleted": false
+  },
+  {
+    "CodigoDeCompra": 7,
+    "FechaDeVenta": "2025-11-19T16:07:01.5627695-04:00",
+    "MontoTotal": 14,
+    "LibroId": 97150,
+    "CompradorId": 1,
+    "VendedorId": 1,
+    "IsDeleted": false
+  }
+]

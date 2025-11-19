@@ -1,0 +1,10 @@
+[
+    {
+        "CodigoDeCompra": 5,
+        "FechaDeVenta": "2025-11-18T00:33:13.868582Z",
+        "LibroId": 66718,
+        "CompradorId": 2,
+        "VendedorId": 2,
+        "IsDeleted": false
+}
+]
