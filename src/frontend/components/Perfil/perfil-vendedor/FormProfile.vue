@@ -1,22 +1,34 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
+import { useRouter } from "vue-router";
 
-const email = ref('');
-const firstName = ref('');
-const lastName = ref('');
+const email = ref("");
+const firstName = ref("");
+const lastName = ref("");
 const age = ref(null);
-const password = ref('');
+const password = ref("");
+const bankName = ref("");
+const accountNumber = ref("");
+const phoneNumber = ref("");
 
-const emit = defineEmits(['submit']);
+const emit = defineEmits(["submit"]);
+const router = useRouter();
 
 function handleSubmit() {
-  emit('submit', {
+  emit("submit", {
     email: email.value,
     firstName: firstName.value,
     lastName: lastName.value,
     age: age.value,
-    password: password.value
+    password: password.value,
+    bankName: bankName.value,
+    accountNumber: accountNumber.value,
+    phoneNumber: phoneNumber.value,
   });
+}
+
+function goToLogin() {
+  router.push("/beginSellerSection");
 }
 </script>
 
@@ -50,12 +62,30 @@ function handleSubmit() {
       <input id="password" v-model="password" type="password" placeholder="Ingresar contraseña" required />
     </label>
 
-    <input type="submit" value="Crear cuenta" />
+    <label for="bankName">
+      Banco
+      <input id="bankName" v-model="bankName" placeholder="Nombre del banco" required />
+    </label>
+
+    <label for="accountNumber">
+      Número de cuenta
+      <input id="accountNumber" v-model="accountNumber" placeholder="1234567890" required />
+    </label>
+
+    <label for="phoneNumber">
+      Teléfono
+      <input id="phoneNumber" v-model="phoneNumber" placeholder="04141234567" required />
+    </label>
+
+    <!-- Botones alineados -->
+    <div class="form-buttons">
+      <input type="submit" value="Crear cuenta" />
+      <button type="button" class="login-button" @click="goToLogin">Iniciar sesión</button>
+    </div>
   </form>
 </template>
 
 <style scoped>
-
 form {
   display: flex;
   height: 75vh;
@@ -90,21 +120,28 @@ form fieldset {
   border: none;
 }
 
-#email, #age, #password {
+#email, #age, #password, #bankName, #accountNumber, #phoneNumber {
   width: 35vw;
 }
 
-input {
+input, button {
   padding: 1rem;
   font-size: 1.5rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
 }
 
+/* Contenedor de botones en fila */
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
 input[type="submit"] {
-  margin: 2rem;
-  width: 18vw;
-  height: 7.5vh;
+  width: 16vw;
+  height: 7vh;
   border-radius: 1rem;
   background-color: #0077cc;
   border: none;
@@ -117,10 +154,25 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
+.login-button {
+  width: 16vw;
+  height: 7vh;
+  border-radius: 1rem;
+  background-color: #5e6a82;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #333;
+  animation: jump 1s ease;
+}
+
 h1 {
   font-size: 2.5rem;
   margin: 2rem 0 1rem 0;
   color: rgb(0,0,0);
 }
-
 </style>
+

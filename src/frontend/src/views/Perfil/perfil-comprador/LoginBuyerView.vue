@@ -1,77 +1,64 @@
-<script setup>
-import { useRouter } from 'vue-router';
-import LoginForm from '../../../../components/perfil/perfil-comprador/LoginForm.vue';
-import { loginComprador } from '../../../../services/Perfil/buyerService.js';
-import LoginFormSeller from "../../../../components/perfil/perfil-vendedor/LoginFormSeller.vue";
+<script setup lang="ts">
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+import LoginForm from "../../../../components/perfil/perfil-comprador/LoginForm.vue";
+import { loginUsuario } from "../../../../services/Perfil/userService.js";
+import MessagePopup from "../../../../components/Common/MessagePopup.vue";
 
 const router = useRouter();
 
-async function handleLogin(data) {
+const showPopup = ref(false);
+const popupMessage = ref("");
+const popupType = ref("error");
+
+async function handleLogin(data: { email: string; password: string }) {
   try {
-    const response = await loginComprador(data);
-    if (response.data.success) {
-      localStorage.setItem("buyerEmail", data.email);
-      localStorage.setItem("isBuyerLogged", "true");
+    const response = await loginUsuario(data.email, data.password);
+
+    if (response.status === 200) {
+      // Guardar el objeto user completo en localStorage
+      const user = response.data;
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("isBuyerLogged", "true"); 
       localStorage.setItem("isSellerLogged", "false");
-      router.push('/comprador/consultar');
-    } else {
-      alert("Credenciales incorrectas");
+
+      popupMessage.value = "Inicio de sesión exitoso.";
+      popupType.value = "success";
+      showPopup.value = true;
     }
-  } catch (error) {
-    alert("Error al iniciar sesión: " + error.message);
+  } catch (error: any) {
+    popupMessage.value =
+      error.response?.data?.error || "Error al iniciar sesión.";
+    popupType.value = "error";
+    showPopup.value = true;
   }
 }
+
+function reloadAndGoHome() {
+  location.href = "/"; 
+}
+
 </script>
 
 <template>
   <article class="registro-article">
     <section class="register-section">
-      <section class="section-left">
-      </section>
+      <section class="section-left"></section>
       <section class="section-right">
-        <LoginForm @submit="handleLogin"></LoginForm>
+        <LoginForm @submit="handleLogin" />
       </section>
     </section>
+
+    <!-- Mensaje emergente -->
+    <MessagePopup
+      v-if="showPopup"
+      :message="popupMessage"
+      :type="popupType"
+      :buttonText="popupType === 'success' ? 'Ir al inicio' : 'Cerrar'"
+      @action="popupType === 'success' ? reloadAndGoHome() : (showPopup = false)"
+    />
   </article>
 </template>
 
-<style scoped>
-
-article {
-  display: flex;
-  justify-content:center;
-  align-items: center;
-  height: 86vh;
-}
-
-.register-section {
-  display: flex;
-  height: 70vh;
-  width: 60vw;
-  background-color: rgb(255,255,255);
-  border-radius: 1rem;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 0 10px rgba(0,44,235,1);
-}
-
-.section-left {
-  width: 25vw;
-  height: 70vh;
-  background-image: url("../../../../assets/img/consultar-libros-img/medium-shot-student-holding-books-stack.jpg");
-  border-radius: 1rem;
-  background-position: center;
-  background-size: cover;
-
-  align-content: end;
-  text-align: center;
-}
-
-.section-right {
-  width: 35vw;
-  height: 60vh;
-  justify-items: center;
-  align-content: center;
-}
-
-</style>
+<style src="../../../../assets/styles/views/Perfil/login-buyer.css"></style>

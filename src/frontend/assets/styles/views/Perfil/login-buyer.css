@@ -1,0 +1,35 @@
+article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 86vh;
+}
+
+.register-section {
+    display: flex;
+    height: 70vh;
+    width: 60vw;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 44, 235, 1);
+}
+
+.section-left {
+    width: 25vw;
+    height: 70vh;
+    background-image: url("../../../../assets/img/consultar-libros-img/medium-shot-student-holding-books-stack.jpg");
+    border-radius: 1rem;
+    background-position: center;
+    background-size: cover;
+    align-content: end;
+    text-align: center;
+}
+
+.section-right {
+    width: 35vw;
+    height: 60vh;
+    justify-items: center;
+    align-content: center;
+}

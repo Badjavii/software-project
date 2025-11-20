@@ -1,22 +1,52 @@
 <script setup lang="ts">
-
+import { ref, onMounted } from "vue";
 import SearchBar from "./SearchBar.vue";
+
+const isLoggedIn = ref(false);
+const isBuyer = ref(false);
+const isSeller = ref(false);
+
+onMounted(() => {
+  isBuyer.value = localStorage.getItem("isBuyerLogged") === "true";
+  isSeller.value = localStorage.getItem("isSellerLogged") === "true";
+  isLoggedIn.value = isBuyer.value || isSeller.value;
+});
 </script>
 
 <template>
   <nav id="nav-bar">
     <section class="nav-bar-one">
-      <img class="navbar-img" alt="Logo de Booksy UCAB" src="../../assets/img/common/booksy-logo-horizontal.png" />
-      <SearchBar></SearchBar>
+      <img
+        class="navbar-img"
+        alt="Logo de Booksy UCAB"
+        src="../../assets/img/common/booksy-logo-horizontal.png"
+      />
+      <SearchBar />
     </section>
     <section class="nav-bar-two">
       <menu class="navbar-list">
-        <li class="navbar-list-item"><router-link to="/" class="link">Inicio</router-link></li>
-        <li class="navbar-list-item"><router-link to="/catalog" class="link">Catálogo</router-link></li>
-        <li class="navbar-list-item"><router-link to="/books" class="link">Categorías</router-link></li>
-        <li class="navbar-list-item"><router-link to="/seller/sale" class="link">Vender</router-link></li>
-        <li class="navbar-list-item"><router-link to="/registerBuyerSection" class="link">Crear cuenta</router-link></li>
-        <li class="navbar-list-item"><router-link to="/beginSection" class="link">Ingresa</router-link></li>
+        <li class="navbar-list-item">
+          <router-link to="/" class="link">Inicio</router-link>
+        </li>
+        <li class="navbar-list-item">
+          <router-link to="/catalog" class="link">Catálogo</router-link>
+        </li>
+        <li class="navbar-list-item">
+          <router-link to="/books" class="link">Categorías</router-link>
+        </li>
+        <li class="navbar-list-item">
+          <router-link to="/seller/sale" class="link">Vender</router-link>
+        </li>
+        <li class="navbar-list-item">
+          <router-link to="/registerBuyerSection" class="link">Crear cuenta</router-link>
+        </li>
+
+        <!-- Botón dinámico -->
+        <li class="navbar-list-item">
+          <router-link v-if="!isLoggedIn" to="/beginSection" class="link">Ingresa</router-link>
+          <router-link v-else-if="isSeller" to="/seller/profile" class="link">Mi Cuenta</router-link>
+          <router-link v-else-if="isBuyer" to="/buyer/profile" class="link">Mi Cuenta</router-link>
+        </li>
       </menu>
     </section>
   </nav>

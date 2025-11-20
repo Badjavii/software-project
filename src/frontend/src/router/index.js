@@ -1,6 +1,9 @@
 
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/Libro/HomeView.vue';
+// Importar la vista de la pagina principal
+import HomeView from '../views/HomeView.vue';
+
+//
 import BooksView from '../views/Libro/BooksView.vue';
 import CatalogView from "../views/Libro/CatalogView.vue";
 import BookDetailView from "../views/Libro/BookDetailView.vue";
@@ -12,6 +15,10 @@ import GestionarVentasView from "../views/Venta/GestionarVentasView.vue";
 import RegisterProfileView from "../views/Perfil/perfil-vendedor/RegisterProfileView.vue";
 import RegisterProfileBuyerView from "../views/Perfil/perfil-comprador/RegisterProfileBuyerView.vue";
 import EditBookView from "../views/Libro/modificar-libro/EditBookView.vue";
+// Consultar perfil comprador
+import ProfileBuyerView from "../views/Perfil/perfil-comprador/ProfileBuyerView.vue";
+// Consultar perfil vendedor
+import ProfileSellerView from "../views/Perfil/perfil-vendedor/ProfileView.vue";
 
 const routes = [
     { path: '/', component: HomeView },
@@ -23,9 +30,11 @@ const routes = [
     { path: '/registerBuyerSection', component: RegisterProfileBuyerView },
     { path: '/beginSellerSection', component: LoginView },
     { path: '/registerSellerSection', component: RegisterProfileView },
-    { path: '/seller/sale', component: VenderView},
+    { path: '/seller/sale', component: VenderView },
     { path: '/gestionarVenta/sale', component: GestionarVentasView },
-    { path: '/seller/editBook', component: EditBookView, props: true }
+    { path: '/seller/editBook', component: EditBookView, props: true },
+    { path: '/buyer/profile', component: ProfileBuyerView },
+    { path: '/seller/profile', component: ProfileSellerView }
 ];
 
 const router = createRouter({

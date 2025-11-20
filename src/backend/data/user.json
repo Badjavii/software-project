@@ -1,0 +1,115 @@
+[
+  {
+    "_email": "lucia.fernandez@ucab.edu.ve",
+    "_firstName": "Luc\u00EDa",
+    "_lastName": "Fern\u00E1ndez",
+    "_age": 28,
+    "_password": "pepe.20201K",
+    "_isSeller": true,
+    "_sellerInfo": {
+      "_bankName": "Mercantil",
+      "_accountNumber": "1234567890",
+      "_phoneNumber": "04141234567",
+      "_ratings": [
+        1.5,
+        4,
+        3.5
+      ]
+    }
+  },
+  {
+    "_email": "fifi.fernandez@ucab.edu.ve",
+    "_firstName": "Pucho\u00EDa",
+    "_lastName": "Ver\u00E1ndez",
+    "_age": 28,
+    "_password": "Verr.28891j",
+    "_isSeller": false,
+    "_sellerInfo": null
+  },
+  {
+    "_email": "juancho.chucho@est.ucab.edu.ve",
+    "_firstName": "Juancho",
+    "_lastName": "Chucho",
+    "_age": 35,
+    "_password": "Arrakis#2025",
+    "_isSeller": true,
+    "_sellerInfo": {
+      "_bankName": "Banco de Venezuela",
+      "_accountNumber": "9876543210",
+      "_phoneNumber": "04141230000",
+      "_ratings": [
+        4.5,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "_email": "mari.diciembre21@est.ucab.edu.ve",
+    "_firstName": "Mari",
+    "_lastName": "Diciembre",
+    "_age": 26,
+    "_password": "District12!Katniss",
+    "_isSeller": true,
+    "_sellerInfo": {
+      "_bankName": "Banesco",
+      "_accountNumber": "1122334455",
+      "_phoneNumber": "04145556677",
+      "_ratings": [
+        3.8,
+        4.2,
+        4
+      ]
+    }
+  },
+  {
+    "_email": "william.stallings@est.ucab.edu.ve",
+    "_firstName": "William",
+    "_lastName": "Stallings",
+    "_age": 60,
+    "_password": "CompArch2025!",
+    "_isSeller": true,
+    "_sellerInfo": {
+      "_bankName": "BBVA Provincial",
+      "_accountNumber": "5566778899",
+      "_phoneNumber": "04146667788",
+      "_ratings": [
+        5,
+        4.9,
+        4.8
+      ]
+    }
+  },
+  {
+    "_email": "jaotero.24@ucab.edu.ve",
+    "_firstName": "javier",
+    "_lastName": "pepe",
+    "_age": 22,
+    "_password": "pepe",
+    "_isSeller": false,
+    "_sellerInfo": null
+  },
+  {
+    "_email": "jajaj.23@ucab.edu.ve",
+    "_firstName": "juancho",
+    "_lastName": "gabo",
+    "_age": 200,
+    "_password": "Chicho",
+    "_isSeller": false,
+    "_sellerInfo": null
+  },
+  {
+    "_email": "juan@ucab.edu.ve",
+    "_firstName": "pepe",
+    "_lastName": "juan",
+    "_age": 19,
+    "_password": "pepito.2024",
+    "_isSeller": true,
+    "_sellerInfo": {
+      "_bankName": "Mercantil",
+      "_accountNumber": "31245345346346",
+      "_phoneNumber": "02127303454",
+      "_ratings": []
+    }
+  }
+]

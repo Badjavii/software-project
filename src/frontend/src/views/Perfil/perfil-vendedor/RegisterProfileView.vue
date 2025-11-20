@@ -1,35 +1,68 @@
-<script setup>
-import { useRouter } from 'vue-router';
-import FormProfile from '../../../../components/perfil/perfil-vendedor/FormProfile.vue';
-import { registrarVendedor } from '../../../../services/Perfil/sellerService.js';
+<script setup lang="ts">
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
+import FormProfile from "../../../../components/perfil/perfil-vendedor/FormProfile.vue";
+import MessagePopup from "../../../../components/Common/MessagePopup.vue";
+import { registrarVendedor } from "../../../../services/Perfil/userService.js";
 
 const router = useRouter();
 
-async function handleRegistro(data) {
+const showPopup = ref(false);
+const popupMessage = ref("");
+const popupType = ref("error");
+
+async function handleRegistro(data: any) {
   try {
-    await registrarVendedor(data);
-    localStorage.setItem("sellerEmail", data.email);
-    localStorage.setItem("isSellerLogged", "true");
-    localStorage.setItem("isBuyerLogged", "false");
-    alert("¡Felicidades! Ya eres un vendedor para Booksy UCAB")
-    await router.push('/vendedor/consultar');
-  } catch (error) {
-    alert("Error al registrar vendedor: " + error.message);
+    await registrarVendedor(
+      {
+        email: data.email,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        age: data.age,
+        password: data.password,
+      },
+      data.bankName,
+      data.accountNumber,
+      data.phoneNumber
+    );
+
+    localStorage.setItem("user", JSON.stringify(data));
+
+    popupMessage.value = "¡Felicidades! Ya eres un vendedor en Booksy UCAB.";
+    popupType.value = "success";
+    showPopup.value = true;
+  } catch (error: any) {
+    popupMessage.value = error.response?.data?.error || "Error al registrar vendedor.";
+    popupType.value = "error";
+    showPopup.value = true;
   }
+}
+
+function reloadAndGoHome() {
+  location.href = "/";
 }
 </script>
 
 <template>
   <article class="registro-article">
     <section class="register-section">
-      <section class="section-left">
-      </section>
+      <section class="section-left"></section>
       <section class="section-right">
-        <FormProfile @submit="handleRegistro"></FormProfile>
+        <FormProfile @submit="handleRegistro" />
       </section>
     </section>
+
+    <MessagePopup
+      v-if="showPopup"
+      :message="popupMessage"
+      :type="popupType"
+      :buttonText="popupType === 'success' ? 'Ir al inicio' : 'Cerrar'"
+      @action="popupType === 'success' ? reloadAndGoHome() : (showPopup = false)"
+    />
   </article>
 </template>
+
 
 <style scoped>
 

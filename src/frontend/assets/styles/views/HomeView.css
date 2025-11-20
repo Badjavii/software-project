@@ -1,0 +1,108 @@
+/* Estilos generales */
+#welcome-page,
+#home-page {
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+
+/* Ecosystem section */
+.welcome-article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent),
+        linear-gradient(to top, rgb(5, 33, 52), transparent),
+        url("../../assets/img/consultar-libros-img/background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    align-items: center;
+    font-weight: bolder;
+}
+
+.text {
+    text-align: center;
+    align-content: center;
+    height: 10%;
+    width: 100%;
+    margin: 0 0 10rem 0;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.filtrer-bar {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.card {
+    flex-flow: wrap;
+}
+
+.card:hover {
+    animation: jump 1s ease;
+}
+
+/* Discovery section */
+.discovery-article {
+    display: flex;
+    flex-direction: column;
+    height: 57vh;
+    margin: 5rem 0 5rem 0;
+    gap: 2rem;
+}
+
+.discovery-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.discovery-card:hover {
+    animation: jump 1s ease;
+}
+
+/* Categorías (HorizontalList) */
+.book-list-article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(5, 33, 52);
+    /* altura sin depender de breakpoints */
+    padding: 4rem 0;
+}
+
+.horizontal-section {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1rem;
+    padding: 2rem;
+    /* ancho/alto fluidos para pruebas */
+    width: 80%;
+    min-height: 24rem;
+}
+
+.article-title {
+    color: black;
+    margin: 0 0 2rem 0;
+    font-size: 2rem;
+}
+
+.div-category-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.horizontal-section:hover,
+.article-title:hover {
+    animation: jump 1s ease;
+}

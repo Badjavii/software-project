@@ -1,43 +1,52 @@
-<script setup lang="js">
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import MessagePopup from "../../../components/Common/MessagePopup.vue";
 
 const options = [
   {
-    title: 'Registrar perfil de vendedor',
-    description: 'Crea tu perfil oficial y comienza a publicar tus libros en Booksy.',
-    to: '/registerSellerSection',
-    cta: 'Registrar'
+    title: "Gestionar Ventas",
+    description: "Registra transacciones, revisa el historial y elimina ventas cuando sea necesario.",
+    to: "/gestionarVenta/sale",
+    cta: "Gestionar",
   },
   {
-    title: 'Iniciar sesión como vendedor',
-    description: 'Accede a tu panel para administrar tus publicaciones y pedidos.',
-    to: '/beginSellerSection',
-    cta: 'Ingresar'
+    title: "Registrar libro",
+    description: "Registra todos los libros que deseas vender.",
+    to: "/seller/registerBook",
+    cta: "Registrar",
   },
   {
-    title: 'Gestionar Ventas',
-    description: 'Registra transacciones, revisa el historial y elimina ventas cuando sea necesario.',
-    to: '/gestionarVenta/sale',
-    cta: 'Gestionar'
+    title: "Eliminar libro",
+    description: "Registra todos los libros que deseas sacar del stock.",
+    to: "/ventas/gestionar",
+    cta: "Eliminar",
   },
   {
-    title: 'Registrar libro',
-    description: 'Registra todos los libros que deseas vender.',
-    to: '/seller/registerBook',
-    cta: 'Registrar'
+    title: "Editar libro",
+    description: "Editar tus libros",
+    to: "/seller/editBook",
+    cta: "Editar",
   },
-  {
-    title: 'Eliminar libro',
-    description: 'Registra todos los libros que deseas sacar del stock.',
-    to: '/ventas/gestionar',
-    cta: 'Eliminar'
-  },
-  {
-    title: 'Editar libro',
-    description: 'Editar tus libros',
-    to: '/seller/editBook',
-    cta: 'Editar'
-  }
 ];
+
+const showPopup = ref(false);
+
+onMounted(() => {
+  const userJson = localStorage.getItem("user");
+  if (!userJson) {
+    showPopup.value = true;
+    return;
+  }
+
+  try {
+    const user = JSON.parse(userJson);
+    if (!user._isSeller && !user.isSeller) {
+      showPopup.value = true;
+    }
+  } catch {
+    showPopup.value = true;
+  }
+});
 </script>
 
 <template>
@@ -48,13 +57,23 @@ const options = [
       <p>Selecciona la acción que necesitas para continuar creciendo dentro del marketplace.</p>
     </section>
 
-      <section v-for="option in options" :key="option.title" class="option-card">
-        <h2>{{ option.title }}</h2>
-        <p>{{ option.description }}</p>
-        <router-link class="card-button" :to="option.to">{{ option.cta }}</router-link>
-      </section>
+    <section v-for="option in options" :key="option.title" class="option-card">
+      <h2>{{ option.title }}</h2>
+      <p>{{ option.description }}</p>
+      <router-link class="card-button" :to="option.to">{{ option.cta }}</router-link>
+    </section>
+
+    <!-- Popup de restricción -->
+    <MessagePopup
+      v-if="showPopup"
+      message="Zona restringida para vendedores. Regístrate como vendedor para continuar."
+      type="error"
+      buttonText="Registrate"
+      @action="$router.push('/registerSellerSection')"
+    />
   </article>
 </template>
+
 
 <style scoped>
 .seller-hub {

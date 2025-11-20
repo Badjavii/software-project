@@ -1,220 +1,105 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
-namespace backend.models;
+﻿using System.Text.Json.Serialization;
 
+namespace backend.models
+{
+    /**
+     * @class Book
+     * @brief Contiene la información de un libro en Booksy.
+     */
+    public class Book
+    {
+        //**@brief # Atributos del libro (inicializados en nulo).
 
-public class Book {
-    
-    // Attributes
+        [JsonPropertyName("_id")]
+        public int Id { get; set; }
 
-    private int _id;
-    private string _nameBook;
-    private string _subtitle;
-    private string _series;
-    private string _author;
-    private string _language;
-    private string _publisher;
-    private string _bookCover;
-    private string _typeBook;
-    private string _bookVolume;
-    private float _bookHeight;
-    private float _bookWidth;
-    private List<string> _categoryList;
-    private int _numPages;
-    private DateTime _publishYear;
-    private float _cost;
-    private string _description;
-    private Seller _seller; 
+        [JsonPropertyName("_nameBook")]
+        public string NameBook { get; set; } = string.Empty;
 
-    // Methods
+        [JsonPropertyName("_subtitle")]
+        public string Subtitle { get; set; } = string.Empty;
 
-    // Constructor
-    public Book(int id, string nameBook, string subtitle, string series, string author, string language, string publisher, string bookCover, string typeBook, string bookVolume, float bookHeight, float bookWidth, List<string> categoryList, int numPages, DateTime publishYear, float cost, string description, Seller seller) {
-        _id = id;
-        _nameBook = nameBook;
-        _subtitle = subtitle;
-        _series = series;
-        _author = author;
-        _language = language;
-        _publisher = publisher;
-        _bookCover = bookCover;
-        _typeBook = typeBook;
-        _bookVolume = bookVolume;
-        _bookHeight = bookHeight;
-        _bookWidth = bookWidth;
-        _categoryList = categoryList;
-        _numPages = numPages;
-        _publishYear = publishYear;
-        _cost = cost;
-        _description = description;
-        _seller = seller;
-    }
+        [JsonPropertyName("_series")]
+        public string Series { get; set; } = string.Empty;
 
-    public Book() {
-        _id = 0;
-        _nameBook = "";
-        _subtitle = "";
-        _series = "";
-        _author = "";
-        _language = "";
-        _publisher = "";
-        _bookCover = "";
-        _typeBook = "";
-        _bookVolume = "";
-        _bookHeight = 0;
-        _bookWidth = 0;
-        _categoryList = new List<string>();
-        _numPages = 0;
-        _publishYear = DateTime.Today;
-        _cost = 0;
-        _description = "";
-        _seller = new Seller();
-    }
+        [JsonPropertyName("_author")]
+        public string Author { get; set; } = string.Empty;
 
-    // Getter and Setter
-    
-    [JsonPropertyName("_id")]
-    public int Id {
-        get => _id;
-        set => _id = value;
-    }
+        [JsonPropertyName("_language")]
+        public string Language { get; set; } = string.Empty;
 
-    [JsonPropertyName("_nameBook")]
-    public string NameBook {
-        get => _nameBook;
-        set => _nameBook = value;
-    }
+        [JsonPropertyName("_publisher")]
+        public string Publisher { get; set; } = string.Empty;
 
-    [JsonPropertyName("_subtitle")]
-    public string Subtitle {
-        get => _subtitle;
-        set => _subtitle = value;
-    }
+        [JsonPropertyName("_bookCover")]
+        public string BookCover { get; set; } = string.Empty;
 
-    [JsonPropertyName("_series")]
-    public string Series {
-        get => _series;
-        set => _series = value;
-    }
+        [JsonPropertyName("_typeBook")]
+        public string TypeBook { get; set; } = string.Empty;
 
-    [JsonPropertyName("_author")]
-    public string Author {
-        get => _author;
-        set => _author = value;
-    }
+        [JsonPropertyName("_bookVolume")]
+        public string BookVolume { get; set; } = string.Empty;
 
-    [JsonPropertyName("_language")]
-    public string Language {
-        get => _language;
-        set => _language = value;
-    }
+        [JsonPropertyName("_bookHeight")]
+        public float BookHeight { get; set; }
 
-    [JsonPropertyName("_publisher")]
-    public string Publisher {
-        get => _publisher;
-        set => _publisher = value;
-    }
+        [JsonPropertyName("_bookWidth")]
+        public float BookWidth { get; set; }
 
-    [JsonPropertyName("_bookCover")]
-    public string BookCover {
-        get => _bookCover;
-        set => _bookCover = value;
-    }
+        [JsonPropertyName("_categoryList")]
+        public List<string> CategoryList { get; set; } = new List<string>();
 
-    [JsonPropertyName("_typeBook")]
-    public string TypeBook {
-        get => _typeBook;
-        set => _typeBook = value;
-    }
+        [JsonPropertyName("_numPages")]
+        public int NumPages { get; set; }
 
-    [JsonPropertyName("_bookVolume")]
-    public string BookVolume {
-        get => _bookVolume;
-        set => _bookVolume = value;
-    }
+        [JsonPropertyName("_publishYear")]
+        public DateTime PublishYear { get; set; } = DateTime.Today;
 
-    [JsonPropertyName("_bookHeight")]
-    public float BookHeight {
-        get => _bookHeight;
-        set => _bookHeight = value;
-    }
+        [JsonPropertyName("_cost")]
+        public float Cost { get; set; }
 
-    [JsonPropertyName("_bookWidth")]
-    public float BookWidth {
-        get => _bookWidth;
-        set => _bookWidth = value;
-    }
+        [JsonPropertyName("_description")]
+        public string Description { get; set; } = string.Empty;
 
-    [JsonPropertyName("_categoryList")]
-    public List<string> CategoryList {
-        get => _categoryList;
-        set => _categoryList = value;
-    }
+        [JsonPropertyName("_buyerEmail")]
+        public string? BuyerEmail { get; set; } = null;
 
-    [JsonPropertyName("_numPages")]
-    public int NumPages {
-        get => _numPages;
-        set => _numPages = value;
-    }
+        [JsonPropertyName("_sellerEmail")]
+        public string SellerEmail { get; set; } = string.Empty;
 
-    [JsonPropertyName("_publishYear")]
-    public DateTime PublishYear {
-        get => _publishYear;
-        set => _publishYear = value;
-    }
+        //**@brief # Constructores.
 
-    [JsonPropertyName("_cost")]
-    public float Cost {
-        get => _cost;
-        set => _cost = value;
-    }
+        //**@brief Constructor vacio.
+        public Book() { }
 
-    [JsonPropertyName("_description")]
-    public string Description {
-        get => _description;
-        set => _description = value;
-    }
-
-    [JsonPropertyName("_seller")] 
-    public Seller Seller {
-        get => _seller;
-        set => _seller = value;
-    }
-
-    // Verification methods
-    
-    bool VerificateNameBook(string nameBook) {
-        string pattern = @"^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\:\-\,\.\'\(\)]+$";
-        return Regex.IsMatch(nameBook, pattern);
-    }
-    
-    // Other Methods
-
-    public List<Book> LoadBooks(string rootFile) {
-        try {
-            string json = File.ReadAllText(rootFile);
-            List<Book>? list = JsonSerializer.Deserialize<List<Book>>(json);
-            return  list != null ? list :  new List<Book>();
-        }  
-        catch (JsonException e) {
-            Console.WriteLine($"JsonException: {e.Message}");
-            List<Book> list = new List<Book>();
-            return list;
+        //**@brief Constructor basico.
+        public Book(int id, string nameBook, string subtitle, string series, string author, string language, string publisher, string bookCover, string typeBook, string bookVolume, float bookHeight, float bookWidth, List<string> categoryList, int numPages, DateTime publishYear, float cost, string description, string buyerEmail, string sellerEmail)
+        {
+            Id = id;
+            NameBook = nameBook;
+            Subtitle = subtitle;
+            Series = series;
+            Author = author;
+            Language = language;
+            Publisher = publisher;
+            BookCover = bookCover;
+            TypeBook = typeBook;
+            BookVolume = bookVolume;
+            BookHeight = bookHeight;
+            BookWidth = bookWidth;
+            CategoryList = categoryList;
+            NumPages = numPages;
+            PublishYear = publishYear;
+            Cost = cost;
+            Description = description;
+            BuyerEmail = buyerEmail;
+            SellerEmail = sellerEmail;
         }
 
-    }
-
-    public List<Book> SearchBooks(List<Book> books, string dataEnter) {
-        string bookSame = dataEnter.ToLower();
-        var sameBook = books.Where(book => book._nameBook.ToLower() == bookSame).ToList();
-        var similarBook = books.Where(book => book._nameBook.ToLower().Contains(bookSame) && book._nameBook.ToLower() != bookSame);
-        return sameBook.Concat(similarBook).ToList();
-    }
-
-    public void ShowBooks(List<Book> bookList) {
-        for (int i = 0; i < bookList.Count(); ++i) {
-            Console.WriteLine($"Nombre del libro: {bookList[i]._nameBook}");
+        public bool ValidateNameBook()
+        {
+            string pattern = @"^[A-Za-zÁÉÍÓÚáéíóúÑñ0-9\s\:\-\,\.\'\(\)]+$";
+            return System.Text.RegularExpressions.Regex.IsMatch(NameBook, pattern);
         }
     }
 }

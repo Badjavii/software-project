@@ -1,34 +1,66 @@
-<script setup>
-import { ref, onMounted } from 'vue';
-import ProfileCard from '../../../../components/perfil-comprador/ProfileCard.vue';
-import { consultarComprador } from '../../../../services/Perfil/buyerService.js';
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
-const perfil = ref(null);
+import ProfileCard from "../../../../components/Perfil/perfil-comprador/ProfileCard.vue";
+import MessagePopup from "../../../../components/Common/MessagePopup.vue";
 
-onMounted(async () => {
-  const email = localStorage.getItem("buyerEmail");
-  if (!email) return;
+const perfil = ref<any>(null);
+const showPopup = ref(false);
+const popupMessage = ref("");
+const popupType = ref("success");
+
+const router = useRouter();
+
+onMounted(() => {
+  const userJson = localStorage.getItem("user");
+  if (!userJson) return;
 
   try {
-    const response = await consultarComprador("Nombre", "Apellido"); // puedes usar email si el backend lo permite
-    perfil.value = response.data;
-  } catch (error) {
-    alert("Error al consultar perfil: " + error.message);
+    perfil.value = JSON.parse(userJson);
+  } catch (error: any) {
+    popupMessage.value = "Error al cargar perfil desde sesión.";
+    popupType.value = "error";
+    showPopup.value = true;
   }
 });
+
+function cerrarSesion() {
+  // Limpiar localStorage
+  localStorage.removeItem("user");
+  localStorage.removeItem("isBuyerLogged"); 
+  localStorage.removeItem("isSellerLogged");
+
+  // Mostrar popup
+  popupMessage.value = "Has cerrado sesión exitosamente.";
+  popupType.value = "success";
+  showPopup.value = true;
+}
+
+function reloadAndGoHome() {
+  location.href = "/"; 
+}
+
 </script>
 
 <template>
-  <section>
+  <section class="buyer-profile-section">
     <h1 class="titulo">Perfil del Comprador</h1>
     <ProfileCard v-if="perfil" :perfil="perfil" />
+
+    <div class="logout-container">
+      <button class="logout-button" @click="cerrarSesion">Cerrar sesión</button>
+    </div>
+
+    <!-- Mensaje emergente -->
+    <MessagePopup
+      v-if="showPopup"
+      :message="popupMessage"
+      :type="popupType"
+      :buttonText="popupType === 'success' ? 'Ir al inicio' : 'Cerrar'"
+      @action="popupType === 'success' ? reloadAndGoHome() : (showPopup = false)"
+    />
   </section>
 </template>
 
-<style scoped>
-.titulo {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-top: 2rem;
-}
-</style>
+<style src="../../../../assets/styles/views/Perfil/profile-buyer.css"></style>
